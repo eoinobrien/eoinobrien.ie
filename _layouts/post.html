@@ -1,0 +1,54 @@
+---
+layout: default
+---
+<article class="post" itemscope itemtype="http://schema.org/Article">
+
+  <header>
+    <h1 itemprop="name headline">{{ page.title }}</h1>
+    {% if page.subtitle %}
+    <h2 itemprop="alternativeHeadline">{{ page.subtitle | escape }}</h2>
+    {% endif %}
+
+    <div class="dateline">
+      <span class="date">
+        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {{ page.date | date: date_format }}
+        </time>
+        {% if page.modified_date %}
+        ~
+        {% assign mdate = page.modified_date | date_to_xmlschema %}
+        <time datetime="{{ mdate }}" itemprop="dateModified">
+          {{ mdate | date: date_format }}
+        </time>
+        {% endif %}
+      </span>
+
+      {% if page.categories %}
+      <span class="category-list">
+        <!-- TODO: add a sperator here  -->
+        {% for category in page.categories %}
+        <a href="{{site.baseurl}}/categories/{{ category | downcase }}" itemprop="keywords">{{category}}</a><span class="separator">,
+        </span>
+        {% endfor %}
+      </span>
+      {% endif %}
+    </div>
+
+    {% if page.image %}
+    <div>
+      <img
+        src="{% if page.image.url contains '://' %}{{ page.image.url }}{% else %}{{ site.baseurl }}/{{ page.image.url }}{% endif %}"
+        alt="{{ page.image.alt }}"
+        itemprop="image">
+      {% if page.image.caption %}<p class="caption">{{ page.image.caption }}</p>{% endif %}
+    </div>
+    {% endif %}
+  </header>
+
+  <div itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
