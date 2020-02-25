@@ -5,9 +5,14 @@ body {
 	max-width:800px;
 	margin:40px auto;
 	padding:0 10px;
-	font:18px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-size:18px;
+	font-family: -apple-system, BlinkMacSystemFont,
+		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+		"Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	color:#444;
-	line-height:1.2;
+	line-height:1.5;
 }
 h1,h2,h3 { line-height:1.2 }
 
@@ -24,7 +29,6 @@ footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8rem;
 }
-
 img {
 	max-width: 100%;
 }
@@ -45,4 +49,5 @@ img {
 @import
 	"./header",
 	"./post",
+	"./post-list",
 	"./category";

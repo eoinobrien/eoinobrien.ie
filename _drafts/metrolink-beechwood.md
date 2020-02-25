@@ -3,7 +3,8 @@ layout: post
 title: "Metrolink"
 subtitle: ""
 date: 2020-02-22 00:00:00
-categories: [Transport, MetroLink, Luas]
+categories: Transport
+tags: [MetroLink, Luas]
 image: 
     url: assets/images/luas-tallaght-NBsJsj8JFpM.jpg
     alt: The rear of Luas that is traveling to Tallaght

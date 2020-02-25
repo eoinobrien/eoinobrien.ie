@@ -24,25 +24,25 @@ layout: default
         {% endif %}
       </span>
 
+      <span>|</span>
       {% if page.categories %}
-      <span class="category-list">
-        <!-- TODO: add a sperator here  -->
-        {% for category in page.categories %}
-        <a href="{{site.baseurl}}/categories/{{ category | downcase }}" itemprop="keywords">{{category}}</a><span class="separator">,
-        </span>
-        {% endfor %}
-      </span>
+      {% assign category-values=page.categories %}
+      {% include category-list.html type="category %}
+      {% endif %}
+      <span>|</span>
+      {% if page.categories %}
+      {% assign category-values=page.tags %}
+      {% include category-list.html type="tag" %}
       {% endif %}
     </div>
 
     {% if page.image %}
-    <div>
+    <figure>
       <img
         src="{% if page.image.url contains '://' %}{{ page.image.url }}{% else %}{{ site.baseurl }}/{{ page.image.url }}{% endif %}"
-        alt="{{ page.image.alt }}"
-        itemprop="image">
-      {% if page.image.caption %}<p class="caption">{{ page.image.caption }}</p>{% endif %}
-    </div>
+        alt="{{ page.image.alt }}" itemprop="image" />
+      {% if page.image.caption %}<figcaption class="caption">{{ page.image.caption }}</figcaption>{% endif %}
+    </figure>
     {% endif %}
   </header>
 

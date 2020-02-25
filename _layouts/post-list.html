@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+
+<div class="post-lists">
+    {% if site.posts.size != 0 %}
+        {% for post in site.posts %}
+        <article>
+            <h1><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h1>
+            <span>{{ post.date | date_to_string }}</span>
+
+            {% if page.categories %}
+            {% assign category-values=page.categories %}
+            {% include category-list.html prepend="In " type="categories" %}
+            {% endif %}
+        </article>
+        {% endfor %}
+    {% else %}
+    <p>One day I might write something, if I do it will end up here.</p>
+    {% endif %}
+</div>

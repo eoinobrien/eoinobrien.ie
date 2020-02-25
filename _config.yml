@@ -25,12 +25,20 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://eoinobrien.ie" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  eoinobrien
-permalink: /posts/:year/:month/:title
+permalink: /posts/:categories/:year/:month/:title
 
 # Build settings
 plugins:
-  - jekyll-admin
-  # - jekyll-feed
+  - jekyll-feed
+  - jekyll-archives
 
 sass:
   sass_dir: assets/css
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  permalinks:
+    tag: '/tag/:name/'
+    category: '/category/:name/'
