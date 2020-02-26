@@ -1,0 +1,14 @@
+.post-list {
+    article {
+        padding: 1rem 0;
+        border-bottom: 1px solid #d5d5d5;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        h1 {
+            margin: 0.5rem 0;
+        }
+    }
+}

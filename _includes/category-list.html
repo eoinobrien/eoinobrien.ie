@@ -1,9 +1,7 @@
-{% if page.categories %}
 <span class="category-list">
-    <span>{{prepend}}</span>
+    <span>{{include.prepend}}</span>
     <!-- TODO: add a sperator here  -->
     {% for category in category-values %}
     <a href="/{{include.type}}/{{ category | downcase }}" itemprop="keywords">{{category}}</a><span class="separator">, </span>
     {% endfor %}
 </span>
-{% endif %}
