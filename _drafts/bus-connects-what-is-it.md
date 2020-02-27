@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Bus Connects: What actually is it?"
-subtitle: "Other than a lesson in poor branding"
 date: 2020-02-22 00:00:00
 categories: Transport
 tags: [Bus, Bus Connects]
@@ -11,6 +10,7 @@ image:
     caption: Photo by <a href="https://unsplash.com/@baumnico?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nico Baum</a> on <a href="https://unsplash.com/s/photos/dublin-bus?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> 
 ---
 Bus Connects is a plan by the National Transport Agency (NTA) to overhaul a number of areas of transportation in Dublin. The plan is made up of 10 distinct plans that all share the same branding. [In the words of the NTA, these are](https://busconnects.ie/about/):
+
 * Building a network of new bus corridors to make journey's faster and more reliable.
 * New network of cycle lanes/tracks.
 * Redesign of the Dublin area bus network to provide a more efficient network with high frequency spines, new orbital routes and increased bus services.
@@ -44,8 +44,6 @@ TODO:
 
 ### Redesign of the Bus Network
 
-
-
 ### Improved Cycle Lanes
 
 ### Improved Ticketing
@@ -58,8 +56,8 @@ In [November 2019](https://www.thejournal.ie/cashless-payments-on-public-transpo
 
 ### Improved Bus Stops and Signage
 
-You may have already seen the updated signage at bus stops. As part of Go-Ahead operating some routes, the signage at bus stops along those routes needed to be updated. 
-https://www.transportforireland.ie/transitData/Design%20guidelines%20for%20the%20Creation%20of%20Public%20Transport%20Information_v1.pdf
+You may have already seen the updated signage at bus stops. As part of Go-Ahead operating some routes, the signage at bus stops along those routes needed to be updated.
+<https://www.transportforireland.ie/transitData/Design%20guidelines%20for%20the%20Creation%20of%20Public%20Transport%20Information_v1.pdf>
 
 ### Cleaner Fleets
 

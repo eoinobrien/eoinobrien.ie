@@ -4,20 +4,23 @@
   @import "./monokai";
 }
 
-.post { 
+.post {
   header {
     h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
     }
+
     h2 {
       font-weight: 400;
       font-style: italic;
     }
+
     .dateline {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       margin-bottom: 1rem;
     }
+
     figure {
       margin: 0;
     }
@@ -48,6 +51,11 @@
     }
   }
 
+  .caption {
+    margin-top: 0.2rem;
+    font-size: 0.95rem;
+  }
+
   pre.highlight {
     padding: 1rem;
     background-color: #eee;
@@ -56,9 +64,4 @@
       background-color: $darker-grey;
     }
   }
-}
-
-.dateline {
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
 }
