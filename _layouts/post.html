@@ -10,27 +10,30 @@ layout: default
     {% endif %}
 
     <div class="dateline">
-      <span class="date">
-        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-          {{ page.date | date: date_format }}
-        </time>
-        {% if page.modified_date %}
-        ~
-        {% assign mdate = page.modified_date | date_to_xmlschema %}
-        <time datetime="{{ mdate }}" itemprop="dateModified">
-          {{ mdate | date: date_format }}
-        </time>
-        {% endif %}
-      </span>
+      {% if page.date %}
+        <span class="date">
+          {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+            {{ page.date | date: date_format }}
+          </time>
+          {% if page.modified_date %}
+          ~
+          {% assign mdate = page.modified_date | date_to_xmlschema %}
+          <time datetime="{{ mdate }}" itemprop="dateModified">
+            {{ mdate | date: date_format }}
+          </time>
+          {% endif %}
+        </span>
+      {% endif %}
 
-      <span>|</span>
       {% if page.categories %}
+      <span>|</span>
       {% assign category-values=page.categories %}
       {% include category-list.html type="category" %}
       {% endif %}
-      <span>|</span>
+
       {% if page.categories %}
+      <span>|</span>
       {% assign category-values=page.tags %}
       {% include category-list.html type="tag" %}
       {% endif %}

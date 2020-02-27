@@ -1,50 +1,59 @@
 ---
 ---
 
-body {
-	max-width:800px;
-	margin:40px auto;
-	padding:0 10px;
-	font-size:18px;
-	font-family: -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-		"Fira Sans", "Droid Sans", "Helvetica Neue",
-		sans-serif,
-		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-	color:#444;
-	line-height:1.5;
-}
-h1,h2,h3 { line-height:1.2 }
+@import "./variables";
 
-nav ul, footer ul {
-    padding: 0px;
-    list-style: none;
-    font-weight: bold;
+body {
+  max-width: 800px;
+  margin: 40px auto;
+
+  padding: 0 10px;
+  font-size: 18px;
+  color: $dark-grey;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.5;
 }
-nav ul li, footer ul li {
-    display: inline;
-    margin-right: 20px;
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
 }
+
+nav ul,
+footer ul {
+  padding: 0px;
+  list-style: none;
+  font-weight: bold;
+}
+
+nav ul li,
+footer ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
 img {
-	max-width: 100%;
+  max-width: 100%;
 }
+
 .caption {
-	margin-top: 0.2rem;
-	font-size: 0.8rem;
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
 }
 
 @media (prefers-color-scheme: dark) {
-	body {
-		color:white;
-		background:#444;
-	}
-	a:link { color:#5bf }
-	a:visited { color:#ccf}
+  body {
+    color: white;
+    background: $dark-grey;
+  }
+  a:link {
+    color: #5bf;
+  }
+  a:visited {
+    color: #ccf;
+  }
 }
 
-@import
-	"./header",
-	"./post",
-	"./post-list",
-	"./category",
-	"./footer";
+@import "./header", "./post", "./post-list", "./category", "./footer";
