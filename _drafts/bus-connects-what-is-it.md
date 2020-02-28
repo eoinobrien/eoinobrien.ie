@@ -59,7 +59,7 @@ In [November 2019](https://www.thejournal.ie/cashless-payments-on-public-transpo
 You may have already seen the updated signage at bus stops. As part of Go-Ahead operating some routes, the signage at bus stops along those routes needed to be updated.
 
 ![A bus stop pole, coloured mainly blue](/assets/images/tfi/tfi-bus-stop-pole-crop.jpg 'New Transport for Ireland Bus Stop')
-Photo from the National Transport Authority
+Photo by the National Transport Authority
 {: .caption}
 
 <https://www.transportforireland.ie/transitData/Design%20guidelines%20for%20the%20Creation%20of%20Public%20Transport%20Information_v1.pdf>
@@ -86,7 +86,7 @@ One interesting fact from the Department's report is that the typical Dublin Bus
 If you have seen a Go-Ahead operated bus you will have already seen this new livery. The buses are predominantly blue and yellow and branded Transport for Ireland. [Dublin Bus will operate with it's existing livery](https://www.nationaltransport.ie/news/customer-notice-about-new-bus-service-175-from-citywest-to-ucd/) (at least for the time being).
 
 ![A double decker bus painted in yellow and blue](/assets/images/tfi/tfi-new-bus-livery.jpg 'New Transport for Ireland Bus Livery ')
-Photo from the National Transport Authority
+Photo by the National Transport Authority
 {: .caption}
 
 <!-- TODO: Learn more about NTA privatisation" -->
