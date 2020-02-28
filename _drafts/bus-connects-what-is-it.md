@@ -4,10 +4,10 @@ title: "Bus Connects: What actually is it?"
 date: 2020-02-22 00:00:00
 categories: Transport
 tags: [Bus, Bus Connects]
-image: 
+image:
     url: assets/images/dublin-bus-qwFqw0EVyuM.jpg
     alt: Dublin Bus driving down a street in Dublin
-    caption: Photo by <a href="https://unsplash.com/@baumnico?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nico Baum</a> on <a href="https://unsplash.com/s/photos/dublin-bus?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> 
+    caption: Photo by <a href="https://unsplash.com/@baumnico?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nico Baum</a> on <a href="https://unsplash.com/s/photos/dublin-bus?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 ---
 Bus Connects is a plan by the National Transport Agency (NTA) to overhaul a number of areas of transportation in Dublin. The plan is made up of 10 distinct plans that all share the same branding. [In the words of the NTA, these are](https://busconnects.ie/about/):
 
@@ -57,21 +57,39 @@ In [November 2019](https://www.thejournal.ie/cashless-payments-on-public-transpo
 ### Improved Bus Stops and Signage
 
 You may have already seen the updated signage at bus stops. As part of Go-Ahead operating some routes, the signage at bus stops along those routes needed to be updated.
+
+![A bus stop pole, coloured mainly blue](/assets/images/tfi/tfi-bus-stop-pole-crop.jpg 'New Transport for Ireland Bus Stop')
+Photo from the National Transport Authority
+{: .caption}
+
 <https://www.transportforireland.ie/transitData/Design%20guidelines%20for%20the%20Creation%20of%20Public%20Transport%20Information_v1.pdf>
 
 ### Cleaner Fleets
 
+NTA want to switch buses in Dublin to a cleaner fleet. At the outset there was uncertainty as to which low emission technology would be used. [In May 2019](https://www.irishtimes.com/news/environment/dublin-bus-takes-delivery-of-first-hybrid-double-decker-vehicles-1.3899918), Dublin Bus took delivery of their first hybrid double-decker vehicles.
 
-https://busconnects.ie/news/nta-commences-procurement-process-for-600-hybrid-buses/
-https://www.irishtimes.com/news/environment/dublin-bus-takes-delivery-of-first-hybrid-double-decker-vehicles-1.3899918 
+<!-- TODO get permissions for the below photo http://www.dublinbusstuff.com/PhotoWeek/Hybrids.html-->
+![A double decker Dublin Bus painted mainly yellow, with green accents](/assets/images/dublin-bus-hybrid.jpg)
+Photo by [Dublin Bus Stuff](http://www.dublinbusstuff.com)
+{: .caption}
+
+Announced under Ireland 2040, no diesel-only public buses will be purchased. In January 2020, [the NTA signed a deal with Alexander Dennis Limited](https://www.irishtimes.com/news/ireland/irish-news/ireland-to-get-its-first-zero-emission-diesel-electric-hybrid-buses-1.4156856) to purchase up to 600 [Enviro400ER](https://www.alexander-dennis.com/products/double-deck-buses-2-axle/enviro400er/) double decker buses, 100 of which will be deployed by the end of 2020, with the remainder over the next 4 and a half years. The set-up allows for 2.5km of continuos electric range.
+
+[Some commentators](https://electrek.co/2020/02/27/ireland-buys-600-hybrid-buses-why-not-fully-electric/), feel Ireland should do more to move to fully electric buses sooner, and I mostly agree. I think moving to a hybrid approach is a good stop gap, and it will allow for cleaner buses to be rolled out sooner, while we wait for both a more complete charging infrastructure to be developed and the price of electric only buses to reduce.
+
+If you are interested, the [Department of Transportation commissioned a report on *Low-Emersion Bus Trials*](https://www.gov.ie/en/publication/7251e2-low-emission-bus-trials-report/). It compares the current diesel fleet with compressed natural gas, hybrid, electric and selective catalytic reduction technology on diesel buses. Some findings include (as you might expect) that fully electric buses are the most energy efficient, and emit the fewest (none) CO<sub>2</sub> and NO<sub>x</sub> emissions. While cost to purchase an electric bus is almost double that of a diesel bus, and 1.35 times more expensive than hybrid, the cost benefit analysis still recommends that electric should be given priority.
+
+One interesting fact from the Department's report is that the typical Dublin Bus vehicle travels 57,000km a year, that is almost 1.5 times the circumference of the Earth (~40,000km).
 
 ### New Livery
 
-If you have seen a Go-Ahead operated bus you will have already seen this new livery. The buses are predominantly blue and yellow and branded Transport for Ireland. I think the plan is to eventually replace all buses on the network including Dublin Buses with this new livery, but I am unable to find a source on that.
+If you have seen a Go-Ahead operated bus you will have already seen this new livery. The buses are predominantly blue and yellow and branded Transport for Ireland. [Dublin Bus will operate with it's existing livery](https://www.nationaltransport.ie/news/customer-notice-about-new-bus-service-175-from-citywest-to-ucd/) (at least for the time being).
 
-![A double decker bus painted in yellow and blue](/assets/images/tfi-new-bus-livery.jpg 'New Transport for Ireland Bus Livery ')
+![A double decker bus painted in yellow and blue](/assets/images/tfi/tfi-new-bus-livery.jpg 'New Transport for Ireland Bus Livery ')
+Photo from the National Transport Authority
+{: .caption}
 
-Some fear that a unified bus livery between Dublin Bus and Go-Ahead will allow the NTA to privatise more routes without anyone noticing. <!-- TODO: Learn more about NTA privatisation" -->
+<!-- TODO: Learn more about NTA privatisation" -->
 
 The new bus livery will be used on commuter bus services too, with some Go-Ahead operated commuter services in Kildare already sporting the look.
 
