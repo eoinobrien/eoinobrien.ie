@@ -1,12 +1,27 @@
 footer.page-footer {
-  border-top: 1px solid $light-grey;
+  max-width: 800px;
+  width: 100%;
+
+  margin: 0 auto;
+  padding: 0.5rem;
+
+  border-top: 1px solid var(--light-grey);
   font-size: 0.8rem;
 
-  ul li {
-    margin: 0 10px;
+  nav {
+    font-family: var(--monospaced-fonts);
 
-    &:first-child {
-      margin-left: 0;
+    ul li {
+      margin: 0 0.5rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+      &:nth-child(2):after {
+        content: "|";
+        margin-left: 1.5rem;
+      }
+
     }
   }
 }

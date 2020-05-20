@@ -4,6 +4,15 @@ layout: default
 <article class="post" itemscope itemtype="http://schema.org/Article">
 
   <header>
+    {% if page.image %}
+    <figure>
+      <img
+        src="{% if page.image.url contains '://' %}{{ page.image.url }}{% else %}{{ site.baseurl }}/{{ page.image.url }}{% endif %}"
+        alt="{{ page.image.alt }}" itemprop="image" />
+      {% if page.image.caption %}<figcaption class="caption">{{ page.image.caption }}</figcaption>{% endif %}
+    </figure>
+    {% endif %}
+
     <h1 itemprop="name headline">{{ page.title }}</h1>
     {% if page.subtitle %}
     <h2 itemprop="alternativeHeadline">{{ page.subtitle | escape }}</h2>
@@ -11,19 +20,19 @@ layout: default
 
     <div class="dateline">
       {% if page.date %}
-        <span class="date">
-          {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-            {{ page.date | date: date_format }}
-          </time>
-          {% if page.modified_date %}
-          ~
-          {% assign mdate = page.modified_date | date_to_xmlschema %}
-          <time datetime="{{ mdate }}" itemprop="dateModified">
-            {{ mdate | date: date_format }}
-          </time>
-          {% endif %}
-        </span>
+      <span class="date">
+        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {{ page.date | date: date_format }}
+        </time>
+        {% if page.modified_date %}
+        ~
+        {% assign mdate = page.modified_date | date_to_xmlschema %}
+        <time datetime="{{ mdate }}" itemprop="dateModified">
+          {{ mdate | date: date_format }}
+        </time>
+        {% endif %}
+      </span>
       {% endif %}
 
       {% if page.categories %}
@@ -38,18 +47,9 @@ layout: default
       {% include category-list.html type="tag" %}
       {% endif %}
     </div>
-
-    {% if page.image %}
-    <figure>
-      <img
-        src="{% if page.image.url contains '://' %}{{ page.image.url }}{% else %}{{ site.baseurl }}/{{ page.image.url }}{% endif %}"
-        alt="{{ page.image.alt }}" itemprop="image" />
-      {% if page.image.caption %}<figcaption class="caption">{{ page.image.caption }}</figcaption>{% endif %}
-    </figure>
-    {% endif %}
   </header>
 
-  <div itemprop="articleBody">
+  <div itemprop="articleBody" id="articleBody">
     <!-- {% include toc.html html=content %} -->
     {{ content }}
   </div>

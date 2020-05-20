@@ -1,54 +1,9 @@
----
----
+main {
+  padding: 0.5rem;
+  margin: 0 auto;
+  flex: 1;
 
-@import "./variables";
-
-body {
+  width: 100%;
   max-width: 800px;
-  margin: 40px auto;
-
-  padding: 0 10px;
-  font-size: 18px;
-  color: $dark-grey;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  line-height: 1.5;
+  word-wrap: break-word;
 }
-
-h1,
-h2,
-h3 {
-  line-height: 1.2;
-}
-
-nav ul,
-footer ul {
-  padding: 0px;
-  list-style: none;
-  font-weight: bold;
-}
-
-nav ul li,
-footer ul li {
-  display: inline;
-  margin-right: 20px;
-}
-
-img {
-  max-width: 100%;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    color: white;
-    background: $dark-grey;
-  }
-  a:link {
-    color: #5bf;
-  }
-  a:visited {
-    color: #ccf;
-  }
-}
-
-@import "./header", "./post", "./post-list", "./category", "./footer";

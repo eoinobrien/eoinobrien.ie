@@ -1,14 +1,10 @@
-@import "./tango";
-
-@media (prefers-color-scheme: dark) {
-  @import "./monokai";
-}
+@import "./monokai";
 
 .post {
   header {
     h1 {
       font-size: 3rem;
-      margin-bottom: 1rem;
+      margin: 1rem 0;
     }
 
     h2 {
@@ -19,14 +15,18 @@
     .dateline {
       font-size: 0.95rem;
       margin-bottom: 1rem;
+      font-family: var(--monospaced-fonts);
     }
 
     figure {
       margin: 0;
+      margin-bottom: 2rem;
     }
   }
 
-  div {
+  #articleBody {
+    margin-top: 3rem;
+
     img {
       max-width: 100%;
       max-height: 3 0rem;
@@ -37,10 +37,10 @@
     border-collapse: collapse;
 
     thead {
-      background: $light-grey;
+      background: var(--light-grey);
 
       @media (prefers-color-scheme: dark) {
-        background: $darker-grey;
+        background: var(--darker-grey);
       }
     }
 
@@ -59,10 +59,9 @@
 
   pre.highlight {
     padding: 1rem;
-    background-color: #eee;
-
-    @media (prefers-color-scheme: dark) {
-      background-color: $darker-grey;
-    }
+    overflow-x: auto;
+    border-radius: 5px;
+    background-color: #333;
+    border: 2px solid #000;
   }
 }

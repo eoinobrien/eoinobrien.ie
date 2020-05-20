@@ -1,4 +1,23 @@
 // Colours
-$dark-grey: #333;
-$darker-grey: #222;
-$light-grey: #d9d9d9;
+:root {
+    --main-text-color: #222;
+    --background-color: #fff;
+    --background-highlight-color: #eee;
+    --darker-grey: #111;
+    --light-grey: #d9d9d9;
+    --monospaced-fonts: "Space Mono", "Courier New", Courier, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-text-color: #ddd;
+        --background-color: #222;
+        --background-highlight-color: #111;
+    }
+    a:link {
+        color: #5bf;
+    }
+    a:visited {
+        color: #ccf;
+    }
+}
