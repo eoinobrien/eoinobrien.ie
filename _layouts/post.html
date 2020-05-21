@@ -7,7 +7,7 @@ layout: default
     {% if page.image %}
     <figure>
       <img
-        src="{% if page.image.url contains '://' %}{{ page.image.url }}{% else %}{{ site.baseurl }}/{{ page.image.url }}{% endif %}"
+        src="{% if page.image.path contains '://' %}{{ page.image.path }}{% else %}{{ site.baseurl }}/{{ page.image.path }}{% endif %}"
         alt="{{ page.image.alt }}" itemprop="image" />
       {% if page.image.caption %}<figcaption class="caption">{{ page.image.caption }}</figcaption>{% endif %}
     </figure>

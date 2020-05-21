@@ -48,7 +48,27 @@ footer ul li {
 
 img {
   max-width: 100%;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
+}
+
+a {
+  &:link, &:visited{
+    color: var(--link-color);
+  }
+}
+
+pre.highlight {
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: var(--border-radius);
+  background-color: var(--code-background);
+}
+
+blockquote {
+  margin: 0;
+  padding: 0.1rem 1rem;
+  border-radius: var(--border-radius);
+  background: var(--blockquote-background);
 }
 
 @import "./header", "./main", "./post", "./post-list", "./category", "./footer";
