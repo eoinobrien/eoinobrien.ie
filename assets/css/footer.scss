@@ -5,7 +5,7 @@ footer.page-footer {
   margin: 0 auto;
   padding: 0.5rem;
 
-  border-top: 1px solid var(--light-grey);
+  border-top: 1px solid var(--border-color);
   font-size: 0.8rem;
 
   nav {
@@ -20,6 +20,7 @@ footer.page-footer {
       &:nth-child(2):after {
         content: "|";
         margin-left: 1.5rem;
+        color: var(--border-color);
       }
 
     }

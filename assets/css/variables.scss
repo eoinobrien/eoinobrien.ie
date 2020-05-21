@@ -3,13 +3,14 @@
     --main-text-color: #222;
     --background-color: #fff;
     --background-highlight-color: #eee;
-    --darker-grey: #111;
-    --light-grey: #d9d9d9;
+    --border-color: #aaa;
 
     --link-color: #1976d2;
-
     --blockquote-background: #eee;
     --code-background: #333;
+
+    --table-border-size: 1px;
+    --thead-background: #eee;
 
     --border-radius: 5px;
 
@@ -21,9 +22,10 @@
         --main-text-color: #ddd;
         --background-color: #222;
         --background-highlight-color: #111;
+        --border-color: #666;
 
         --link-color: #378fe7;
-
+        --thead-background: #333;
         --blockquote-background: var(--code-background);
     }
 }

@@ -35,19 +35,23 @@
 
   table {
     border-collapse: collapse;
+    border-radius: var(--border-radius);
+    border: var(--table-border-size) solid var(--border-color);
+    overflow-y: scroll;
 
     thead {
-      background: var(--light-grey);
-
-      @media (prefers-color-scheme: dark) {
-        background: var(--darker-grey);
-      }
+      background: var(--thead-background);
     }
 
     th,
     td {
-      border: 1px solid #000;
       padding: 10px;
+      border: var(--table-border-size) solid var(--border-color);
+    }
+
+    td:first-child,
+    th:first-child {
+      border-left: none;
     }
   }
 
