@@ -21,7 +21,7 @@
 title: Eoin O'Brien
 email: eoin@eoinobrien.ie
 description: >- # this means to ignore newlines until "baseurl:"
-  Eoin O'Brien, Software Engineer and a bit too interested in transport.
+  Eoin O'Brien, Software Engineer and with an interest in transport.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://eoinobrien.ie" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  eoinobrien

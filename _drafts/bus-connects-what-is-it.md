@@ -5,7 +5,7 @@ date: 2020-02-22 00:00:00
 categories: Transport
 tags: [Bus, Bus Connects]
 image:
-    url: assets/images/dublin-bus-qwFqw0EVyuM.jpg
+    path: assets/images/dublin-bus-qwFqw0EVyuM.jpg
     alt: Dublin Bus driving down a street in Dublin
     caption: Photo by <a href="https://unsplash.com/@baumnico?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nico Baum</a> on <a href="https://unsplash.com/s/photos/dublin-bus?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 ---
@@ -27,15 +27,6 @@ You might know some of these plans from the news, but my goal here is to give a 
 ## What it isn't
 
 There is a lot of talk about transport in Ireland at the moment thanks to a large period of little to know investment coming to a head. Bus Connects is a part of the Ireland 2040 plan announced in May 2019, but it does not involve anything other than that listed above. While naturally any improvement in other areas of Dublin's public transport will effect the bus network, new transportation projects like Metrolink, Dart improvements or new LUAS lines are not part of the Bus Connect project.
-
-```csharp
-public class Eoin {
-    public Eoin(string Eoin, double d)
-    {
-        return "blue";
-    }
-}
-```
 
 ## The plans
 
