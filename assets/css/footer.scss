@@ -17,12 +17,12 @@ footer.page-footer {
       &:first-child {
         margin-left: 0;
       }
+
       &:nth-child(2):after {
         content: "|";
         margin-left: 1.5rem;
         color: var(--border-color);
       }
-
     }
   }
 }
