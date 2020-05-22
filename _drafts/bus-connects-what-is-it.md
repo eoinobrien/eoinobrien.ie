@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Bus Connects: What actually is it?"
-date: 2020-02-22 00:00:00
+date: 2020-05-31 00:00:00
 categories: Transport
 tags: [Bus, Bus Connects]
 image:
@@ -11,16 +11,16 @@ image:
 ---
 Bus Connects is a plan by the National Transport Agency (NTA) to overhaul a number of areas of transportation in Dublin. The plan is made up of 10 distinct plans that all share the same branding. [In the words of the NTA, these are](https://busconnects.ie/about/):
 
-* Building a network of new bus corridors to make journey's faster and more reliable.
-* New network of cycle lanes/tracks.
-* Redesign of the Dublin area bus network to provide a more efficient network with high frequency spines, new orbital routes and increased bus services.
-* Develop a state-of-the-art ticketing system.
-* Implementation of a cashless payment system.
-* Simpler fare structure.
-* New bus stops and shelters with better signage and information
-* Provision of bus based Park and Ride sites in key locations.m
-* New bus livery providing a common style across different operators.
-* Transitioning to a new bus fleet with low emission vehicle technologies.
+> * Building a network of new bus corridors to make journey's faster and more reliable.
+> * New network of cycle lanes/tracks.
+> * Redesign of the Dublin area bus network to provide a more efficient network with high frequency spines, new orbital routes and increased bus services.
+> * Develop a state-of-the-art ticketing system.
+> * Implementation of a cashless payment system.
+> * Simpler fare structure.
+> * New bus stops and shelters with better signage and information
+> * Provision of bus based Park and Ride sites in key locations.m
+> * New bus livery providing a common style across different operators.
+> * Transitioning to a new bus fleet with low emission vehicle technologies.
 
 You might know some of these plans from the news, but my goal here is to give a comprehensive list of what each of these plans entails. Some of these plans overlap, but as a whole I tend to think of them as individual plans that would be improved but others being implemented.
 
