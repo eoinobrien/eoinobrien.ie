@@ -28,17 +28,22 @@
 }
 
 :root {
+    --content-width: 900px;
+
     --main-text-color: #222;
     --light-text-color: #ddd;
     --background-color: #fff;
-    --border-color: #aaa;
+    --border-color: #ccc;
 
     --link-color: #1976d2;
-    --blockquote-background: #f1f1f1;
+    --blockquote-background: #dcebfb;
     --code-background: #333;
 
     --table-border-size: 1px;
     --thead-background: #f1f1f1;
+
+    --category-pill-background: #ddd;
+    --category-pill-color: #333;
 
     --border-radius: 5px;
 
@@ -51,8 +56,11 @@
         --background-color: #222;
         --border-color: #666;
 
-        --link-color: #378fe7;
+        --link-color: #64b1ff;
         --thead-background: #333;
-        --blockquote-background: var(--code-background);
+        --blockquote-background:#0a3157;
+
+        --category-pill-background: #444;
+        --category-pill-color: #ddd;
     }
 }

@@ -1,0 +1,11 @@
+<h1>{{ include.title }}</h1>
+
+<div class="post-list">
+    {% if include.posts.size != 0 %}
+        {% for post in include.posts %}
+            {% include archive-post-item.html post=post type=type%}
+        {% endfor %}
+    {% else %}
+        <p>One day I might write something, if I do it will end up here.</p>
+    {% endif %}
+</div>

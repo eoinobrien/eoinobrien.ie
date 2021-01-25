@@ -1,7 +1,9 @@
 <span class="category-list">
-    <span>{{include.prepend}}</span>
+    {% if include.prepend %}
+        <span title="{{include.type}}">{{include.prepend}}</span>
+    {% endif %}
     <!-- TODO: add a sperator here  -->
     {% for category in category-values %}
-    <a href="/{{include.type}}/{{ category | slugify }}" itemprop="keywords">{{category}}</a><span class="separator">, </span>
+    <a href="/posts/{{include.type}}/{{ category | slugify }}" itemprop="keywords">{{category}}</a>
     {% endfor %}
 </span>

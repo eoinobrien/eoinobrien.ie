@@ -1,5 +1,15 @@
 .category-list {
-    .separator:last-child {
-        display:none;
+    a {
+        background-color: var(--category-pill-background);
+        border-radius: 2px;
+        color: var(--category-pill-color);
+        font-weight: 700;
+        padding: 2px 4px;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &:hover {
+            filter: brightness(85%);
+        }
     }
 }

@@ -1,0 +1,17 @@
+.post-list-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .dateline {
+    font-size: 0.85rem;
+    font-family: var(--monospaced-fonts);
+  }
+
+  h1 {
+    margin: 0.5rem 0;
+  }
+}

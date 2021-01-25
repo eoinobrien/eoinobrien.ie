@@ -1,0 +1,21 @@
+<article class="post-list-item">
+    <h1><a href="{{ include.post.url }}" title="{{ include.post.title }}">{{ include.post.title }}</a></h1>
+    <div class="dateline">
+        <span>{{ include.post.date | date_to_string }}</span>
+        {% if include.type != "category" %}
+            <span> | </span>
+            {% if include.post.categories %}
+            {% assign category-values=include.post.categories %}
+            {% include category-list.html type="category" %}
+            {% endif %}
+        {% endif %}
+
+        {% if include.type != "tag" %}
+            <span> | </span>
+            {% if include.post.tags %}
+            {% assign category-values=include.post.tags %}
+            {% include category-list.html prepend="🏷️" type="tag" %}
+            {% endif %}
+        {% endif %}
+    </div>
+</article>

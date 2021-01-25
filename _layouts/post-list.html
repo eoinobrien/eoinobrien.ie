@@ -1,34 +1,5 @@
 ---
 layout: default
 ---
-<h1>{{ page.title }}</h1>
 
-<div class="post-list">
-    {% if site.posts.size != 0 %}
-        {% for post in site.posts %}
-        <article>
-            <h1><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h1>
-            <div class="dateline">
-                <span>{{ post.date | date_to_string }}</span>
-                {% if page.type != "category" %}
-                    <span> | </span>
-                    {% if post.categories %}
-                    {% assign category-values=post.categories %}
-                    {% include category-list.html prepend="Category: " type="category" %}
-                    {% endif %}
-                {% endif %}
-
-                {% if page.type != "tag" %}
-                    <span> | </span>
-                    {% if post.tags %}
-                    {% assign category-values=post.tags %}
-                    {% include category-list.html prepend="Tags: " type="tag" %}
-                    {% endif %}
-                {% endif %}
-            </div>
-        </article>
-        {% endfor %}
-    {% else %}
-    <p>One day I might write something, if I do it will end up here.</p>
-    {% endif %}
-</div>
+{% include archive-list.html title=page.title posts=page.posts type=page.type %}

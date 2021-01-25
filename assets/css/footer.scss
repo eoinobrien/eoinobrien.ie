@@ -1,5 +1,5 @@
 footer.page-footer {
-  max-width: 800px;
+  max-width: var(--content-width);
   width: 100%;
 
   margin: 0 auto;
@@ -24,5 +24,9 @@ footer.page-footer {
         color: var(--border-color);
       }
     }
+  }
+
+  p {
+    margin-bottom: 0;
   }
 }

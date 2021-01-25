@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Bus Connects: What actually is it?"
-date: 2020-05-31 00:00:00
+date: 2020-10-18 00:00:00
 categories: Transport
 tags: [Bus, Bus Connects]
 image:
@@ -9,7 +9,10 @@ image:
     alt: Dublin Bus driving down a street in Dublin
     caption: Photo by <a href="https://unsplash.com/@baumnico?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nico Baum</a> on <a href="https://unsplash.com/s/photos/dublin-bus?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 ---
-Bus Connects is a plan by the National Transport Agency (NTA) to overhaul a number of areas of transportation in Dublin. The plan is made up of 10 distinct plans that all share the same branding. [In the words of the NTA, these are](https://busconnects.ie/about/):
+Bus Connects is a plan by the National Transport Agency (NTA) to overhaul a number of areas of transportation in Dublin. The plan is made up of 10 distinct plans that all share the same branding. I know nothing about branding so maybe this was a good idea, but to me it just looks it caused a bunch of confusion for the general public, with people unable to separate on part of the plan from the others.
+
+
+Either way, these 10 plans, [in the words of the NTA, are](https://busconnects.ie/about/):
 
 > * Building a network of new bus corridors to make journey's faster and more reliable.
 > * New network of cycle lanes/tracks.
@@ -18,11 +21,11 @@ Bus Connects is a plan by the National Transport Agency (NTA) to overhaul a numb
 > * Implementation of a cashless payment system.
 > * Simpler fare structure.
 > * New bus stops and shelters with better signage and information
-> * Provision of bus based Park and Ride sites in key locations.m
+> * Provision of bus based Park and Ride sites in key locations.
 > * New bus livery providing a common style across different operators.
 > * Transitioning to a new bus fleet with low emission vehicle technologies.
 
-You might know some of these plans from the news, but my goal here is to give a comprehensive list of what each of these plans entails. Some of these plans overlap, but as a whole I tend to think of them as individual plans that would be improved but others being implemented.
+You might know some of these plans from the news, but my goal here is to give a comprehensive list of what each of these plans entails. Some of these plans overlap, but as a whole I tend to think of them as individual plans that would be improved if the others were implemented.
 
 ## What it isn't
 
@@ -30,9 +33,12 @@ There is a lot of talk about transport in Ireland at the moment thanks to a larg
 
 ## The plans
 
+### Redesign of the Bus Network
+This is 
+
 ### Bus Corridors
 
-The NTA are calling this the [Core Bus Corridor Project](https://busconnects.ie/initiatives/core-bus-corridor-project/) and you might know it from the uproar about trees that are planned to be cut down. <!-- Add links to news articles --> The plan involves creating 16 bus corridors through a combination creating more dedicated bus lanes (by widening streets, or removing car lanes), and/or bus gates.
+The NTA are calling this the [Core Bus Corridor Project](https://busconnects.ie/initiatives/core-bus-corridor-project/) and you might know it from the uproar about trees that are planned to be cut down. <!-- Add links to news articles --> The plan involves creating 16 bus corridors, through a combination creating more dedicated bus lanes (by widening streets, or removing car lanes), and/or bus gates.
 
 TODO:
 
@@ -40,11 +46,26 @@ TODO:
 
 #### Why cut down trees
 
+The initial plans for the Core Bus Corridors involved cutting down a significant number of trees along the corridors.
+
 #### What are bus gates
 
-### Redesign of the Bus Network
+Bus Gates are a short section of a road which only allow buses and specific vehicles through. Private motor vehicles are diverted away from the gate. Bus gates facilitate bus priority ensuring buses can run to schedule.
+Under Bus Connects, bus gates are to be used in places where roads are too narrow to allow for cars and buses to travel together.
 
-### Improved Cycle Lanes
+![Road layout of an example Bus Gate](/assets/images/bus-gate.png 'A road layout of an example bus gate')
+
+
+### Improved Cycle Infrastructure
+With the creation of Core Bus Corridors (CBCs) [the NTA would also like to create cycle corridors on the main arteries to the city](https://busconnects.ie/initiatives/on-your-bike/). These cycle lanes will be segregated from both bus and normal traffic, and designed for all users from beginners to experienced cyclists.  
+
+The 200km of cycle corridor would be a start to create a Dutch style cycling infrastructure in the Capital that would allow cyclists to feel safer while travelling.
+
+
+
+[The Dublin Cycling Campaign](https://www.dublincycling.com/cycling/who-are-dublin-cycling-campaign) is an independent, voluntary advocacy group who lobby for improved conditions for cyclists. Since the initial draft of the CBCs was published the Dublin Cycling Campaign have been broadly supportive of the plan, while raising specific concerns to the NTA. Some of which including [gaps in cycle routes, island bus stops, and parking protected lanes have been at least partially addressed in the preferred routes that were published in March of this year.](https://www.dublincycling.com/cycling/updated-busconnects-designs-show-promise-cycle-routes-allimproveme) However, they still have some concerns including on CBC16 where cyclists are to be squeezed to keep an extra bus lane.
+
+I'm excited for improved cycling infrastructure, while I rarely cycle in the city, when I do, I feel terrified and hate being passed too closely by drivers. We have seen from the Costal Mobility Route from Blackrock to Sandycove that dedicated, high quality and safe infrastructure will lead to an uptick in usage and encourage people who might not be considered "cyclists" to cycle. One fact, I learned while looking into cycling in the Netherlands was that they only started their cycling revolution in the 1970s so while we are late, we have time. And secondly, apart from the warmer summer months in Amsterdam, [Dublin experiences warmer average days, less rainy days, and less rainfall.](https://weather-averages.co.uk/compare-climate/dublin%2C-ireland/amsterdam%2C-netherlands)
 
 ### Improved Ticketing
 
@@ -52,7 +73,7 @@ When I travel to London, I love how simple it is to travel around the city. Bein
 
 [Bus Connects includes plans](https://busconnects.ie/initiatives/just-the-ticket/) to both simplify ticketing and the move to a cashless system on buses. The NTA say that the "second biggest source of bus delays, after traffic congestion, is the payment process at bus stops", and anecdotally I know when boarding a bus at busy spots it can take what feels like an age to get to the bus driver to say "€2.15".
 
-In [November 2019](https://www.thejournal.ie/cashless-payments-on-public-transport-4897407-Nov2019/), the NTA issued a market consulataion for Next Generation Ticketing "to advance the implementation of an Account Based Ticketing (ABT) system across the bus, rail and light rail network". The ABT system includes incorporating open payments allowing for: contactless debit and credit cards (incl. Apple Pay and Google Pay); fare changes, like a 90 minute multi modal fare; QR codes that can be read from an app or paper; electronic tokens and identifiers for concessionary fare products (free travel); alteratives for mobile payments like using a Bluetooth "Be-In Be-Out" model.
+In [November 2019](https://www.thejournal.ie/cashless-payments-on-public-transport-4897407-Nov2019/), the NTA issued a market consulataion for Next Generation Ticketing "to advance the implementation of an Account Based Ticketing (ABT) system across the bus, rail and light rail network". The ABT system includes incorporating open payments allowing for: contactless debit and credit cards (incl. Apple Pay and Google Pay); fare changes, like a 90 minute multi modal fare; QR codes that can be read from an app or paper; electronic tokens and identifiers for concessionary fare products (free travel); alternatives for mobile payments like using a Bluetooth "Be-In Be-Out" model.
 
 ### Improved Bus Stops and Signage
 
@@ -83,7 +104,7 @@ One interesting fact from the Department's report is that the typical Dublin Bus
 
 ### New Livery
 
-If you have seen a Go-Ahead operated bus you will have already seen this new livery. The buses are predominantly blue and yellow and branded Transport for Ireland. [Dublin Bus will operate with it's existing livery](https://www.nationaltransport.ie/news/customer-notice-about-new-bus-service-175-from-citywest-to-ucd/) (at least for the time being).
+If you have seen a Go-Ahead operated bus you will have already seen this new livery. The buses are predominantly blue and yellow and branded Transport for Ireland. For the time being, [Dublin Bus will continue to operate with it's existing livery](https://www.nationaltransport.ie/news/customer-notice-about-new-bus-service-175-from-citywest-to-ucd/).
 
 ![A double decker bus painted in yellow and blue](/assets/images/tfi/tfi-new-bus-livery.jpg 'New Transport for Ireland Bus Livery ')
 Photo by the National Transport Authority
