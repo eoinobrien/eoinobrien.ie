@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Historical data set of Luas Real Time Information"
-date: 2021-12-30 23:00:00
-categories: Transport
+date: 2021-12-29 23:00:00
+categories: Transport 
 tags: [Luas, Data Science]
 image:
     path: assets/images/luas-tallaght-NBsJsj8JFpM.jpg
