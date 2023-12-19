@@ -12,7 +12,7 @@ Find me on more interesting sites here:
 * [LinkedIn](https://www.linkedin.com/in/obrieneoin)
 
 Some projects of mine:
-* [Codebreaker](codebreaker.eoin.co/)
+* [Codebreaker](https://codebreaker.eoin.co/)
   * Implementation of the [Mastermind boardgame](https://en.wikipedia.org/wiki/Mastermind_(board_game)).
 * [Upcoming City](https://www.upcoming.city/) - *Offline*
   * Automatically updating playlists of artists playing in a city soon.
