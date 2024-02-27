@@ -26,18 +26,12 @@ The main issue I missed from Luas at a Glance was the lack of operating hours. W
 So that was the first thing I wanted, operating hours.
 
 It's got some nice features that I'm proud of: 
-Clock face eleven-thirty
-First and last tram information
-High voltage sign
-Super speedy
-⭐
-Favorite Stations
-Anticlockwise downwards and upwards open circle arrows
-Automatic forecast refresh
-Bicycle
-Station facilities
-No entry sign
-No ads
+🕦 First and last tram information
+⚡ Super speedy
+⭐ Favorite Stations
+🔄️ Automatic forecast refresh
+🚲 Station facilities
+⛔ No ads
 
 Introducing
 
