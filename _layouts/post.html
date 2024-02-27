@@ -49,8 +49,13 @@ layout: default
     </div>
   </header>
 
+  <div class="toc">
+    {% if page.include-toc %}
+      {% include toc.html html=content %}
+    {% endif %}
+  </div>
+  
   <div itemprop="articleBody" id="articleBody">
-    <!-- {% include toc.html html=content %} -->
     {{ content }}
   </div>
 
