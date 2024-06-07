@@ -14,7 +14,7 @@ Find me on more interesting sites here:
 Some projects of mine:
 * [Codebreaker](https://codebreaker.eoin.co/)
   * Implementation of the [Mastermind boardgame](https://en.wikipedia.org/wiki/Mastermind_(board_game)).
-* [Upcoming City](https://www.upcoming.city/) - *Offline*
+* [Upcoming City](https://upcomingcity.eoin.co/) - *Offline*
   * Automatically updating playlists of artists playing in a city soon.
 * [Another Luas App](https://anotherluasapp.com/)
   * By far the best Luas app out there. Includes, details like last trams [agus tá sé ar fáil i nGaeilge](https://anotherluasapp.com/ga "and it's available in Irish").
