@@ -2,7 +2,7 @@
 layout: post
 title: "Another Luas App"
 subtitle: "The perfect Luas app"
-date: 2024-07-02 20:00:00
+date: 2024-07-02 19:00:00
 categories: Software
 tags: [Luas, React, PWA]
 image:
