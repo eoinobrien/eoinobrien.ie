@@ -2,7 +2,7 @@
 layout: post
 title: "Another Luas App"
 subtitle: "The perfect Luas app"
-date: 2021-01-24 00:00:00
+date: 2024-07-02 20:00:00
 categories: Software
 tags: [Luas, React, PWA]
 image:
@@ -14,6 +14,8 @@ image:
 I created a Luas App that does all the things I wanted it to do. You can find it on [https://anotherluasapp.com/](https://anotherluasapp.com/)
 
 -------
+
+*I started writing this a while ago, but I am only getting around to publishing it now. I use [Transit App](https://transitapp.com/) for my transit forecasting needs.*
 
 In March 2020, at the start of Lockdown 1.0 I wanted to take a look at React. So in the effort to find something interesting to do I dipped into my never ending well of Transport in Dublin and decided to create a app that would provide all the features I felt was missing from other applications.
 
@@ -28,11 +30,15 @@ So that was the first thing I wanted, operating hours.
 It's got some nice features that I'm proud of: 
 🕦 First and last tram information
 ⚡ Super speedy
-⭐ Favorite Stations
+⭐ Favourite stations
 🔄️ Automatic forecast refresh
 🚲 Station facilities
 ⛔ No ads
+🇮🇪 Ar fáil i nGaeilge
 
-Introducing
+Introducing [Another Luas App](https://anotherluasapp.com/).
 
-Gaeilge
+# How it works
+The app is a [React app (available on GitHub)](https://github.com/eoinobrien/luas-app) hosted on Azure, and calls an [Azure Function (also available on GitHub)](https://github.com/eoinobrien/luas-api-dotnet) to get the upcoming forecast. This Azure function calls the [publicly available Luas forecast API](https://data.gov.ie/dataset/luas-forecasting-api), translates that response from XML to JSON, and enriches the data with station facilities and operation hours.
+
+Give it a go and let me know what you think.
