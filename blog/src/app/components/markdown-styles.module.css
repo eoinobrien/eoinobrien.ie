@@ -1,0 +1,133 @@
+.markdown {
+    @apply text-lg leading-relaxed;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown blockquote {
+    @apply my-6;
+}
+
+.markdown img {
+    @apply rounded;
+}
+
+.markdown ul {
+    @apply list-disc;
+}
+
+.markdown ol {
+    @apply list-decimal;
+}
+
+.markdown ul,
+.markdown ol {
+    @apply pl-0 list-inside mt-1 space-y-2;
+}
+
+.markdown ul:first-child,
+.markdown ol:first-child {
+    @apply pl-4;
+}
+
+.markdown h1 a,
+.markdown h2 a,
+.markdown h3 a,
+.markdown h4 a,
+.markdown h5 a,
+.markdown h6 a {
+    @apply no-underline;
+    color: var(--foreground-rgb);
+}
+
+.markdown h1 {
+    @apply text-4xl mt-8 mb-4 leading-snug;
+}
+
+.markdown h2 {
+    @apply text-3xl mt-8 mb-4 leading-snug;
+}
+
+.markdown h3 {
+    @apply text-2xl mt-8 mb-4 leading-snug;
+}
+
+.markdown hr {
+    @apply my-4 border-zinc-400 dark:border-zinc-600;
+}
+
+.markdown blockquote {
+    @apply border-l-4 pl-4 border-zinc-300 dark:border-zinc-700;
+}
+
+.markdown table {
+    @apply border-separate border-spacing-0 border-2 border-l-0 border-t-0 border-zinc-300 dark:border-zinc-700 rounded;
+}
+
+.markdown th {
+    @apply bg-zinc-200 dark:bg-zinc-800;
+}
+
+.markdown td,
+.markdown th {
+    @apply p-2 border-t-2 border-l-2 border-zinc-300 dark:border-zinc-700;
+}
+
+.markdown th:first-of-type {
+    @apply rounded-tl;
+}
+
+.markdown th:last-of-type {
+    @apply rounded-tr;
+}
+
+.markdown tr:last-of-type td:first-of-type {
+    @apply rounded-bl;
+}
+
+.markdown tr:last-of-type td:last-of-type {
+    @apply rounded-br;
+}
+
+/* Code highlighting */
+.markdown pre {
+    @apply p-2 overflow-x-auto;
+}
+
+.markdown pre [data-line] {
+    @apply px-2;
+}
+
+.markdown code {
+    counter-reset: line;
+}
+
+.markdown span > code {
+    @apply px-1 ;
+}
+
+.markdown figure[data-rehype-pretty-code-figure] {
+    @apply border-zinc-950 border-2 overflow-hidden rounded dark:border-zinc-700 bg-zinc-950 dark:bg-zinc-800 text-[#E6EDF3];
+}
+
+.markdown div[data-rehype-pretty-code-title],
+.markdown figcaption[data-rehype-pretty-code-caption] {
+    @apply px-2 py-1 bg-zinc-200 dark:bg-zinc-700;
+}
+
+.markdown code[data-line-numbers] > [data-line]::before {
+    counter-increment: line;
+    content: counter(line);
+
+    /* Other styling */
+    display: inline-block;
+    width: 1rem;
+    margin-right: 2rem;
+    text-align: right;
+    color: gray;
+}
+
+.markdown code[data-line-numbers-max-digits="2"] > [data-line]::before {
+    width: 2rem;
+}
