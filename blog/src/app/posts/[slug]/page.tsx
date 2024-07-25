@@ -52,8 +52,8 @@ export function generateMetadata({ params }: Params): Metadata {
       title,
       images: post.image && [
         {
-          url: new URL(post.image.path, "https://eoinobrien.ie"),
-          secureUrl: new URL(post.image.path, "https://eoinobrien.ie"),
+          url: new URL(post.image.path, process.env['HOST']),
+          secureUrl: new URL(post.image.path, process.env['HOST']),
           alt: post.image.alt,
         },
       ],

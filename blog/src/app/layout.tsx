@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Eoin O'Brien",
-  description: "Software Engineer",
+  description: "Software engineer, fan of trains.",
 };
 
 export default function RootLayout({
@@ -20,7 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className + " px-2 flex flex-col min-h-screen"}>
         <LayoutHeader />
-        <div className="flex-1 max-w-4xl mx-auto">{children}</div>
+        <div className="flex-1">
+          <div className="max-w-4xl mx-auto">{children}</div>
+        </div>
         <LayoutFooter />
       </body>
     </html>

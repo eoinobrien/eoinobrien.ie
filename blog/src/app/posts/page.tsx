@@ -13,8 +13,8 @@ export default async function Page() {
 }
 
 export const metadata: Metadata = {
-  title: "Post by Eoin O'Brien",
+  title: "Posts by Eoin O'Brien",
   openGraph: {
-    title: "Post by Eoin O'Brien",
+    title: "Posts by Eoin O'Brien",
   },
 };
