@@ -6,7 +6,7 @@ export default async function Page() {
   const categories = getAllPostCategories();
 
   return (
-    <main>
+    <main className="mt-4">
       <ItemsList title="Post categories" path="categories" items={categories} />
     </main>
   );

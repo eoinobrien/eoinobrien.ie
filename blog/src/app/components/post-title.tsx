@@ -9,12 +9,12 @@ type Props = {
 
 export function PostTitle({ categories, children }: Props) {
   return (
-    <div className="mb-8">
+    <div className="mb-4">
       {categories &&
         categories.map((category, index) => (
           <PostCategory category={category} key={index} />
         ))}
-      <h1 className="text-5xl font-bold tracking-tight leading-tight">
+      <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
         {children}
       </h1>
     </div>

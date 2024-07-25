@@ -4,7 +4,9 @@ export function LayoutHeader() {
   return (
     <div>
       <div className="flex my-4 max-w-5xl mx-auto">
-        <h1 className="flex-1">Eoin O'Brien</h1>
+        <Link href="/" className="flex-1 font-extrabold no-underline text-zinc-950 dark:text-zinc-50">
+          <h1>Eoin O'Brien</h1>
+        </Link>
         <div>
           <Link href="/" className="m-1">
             Home

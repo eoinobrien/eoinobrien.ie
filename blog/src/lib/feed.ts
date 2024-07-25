@@ -4,12 +4,8 @@ import { Feed } from "feed";
 import fs from "fs";
 
 export default async function generateFeeds(posts: Post[]) {
-  const siteUrl =
-    new URL(process.env.NODE_ENV === "production"
-      ? "https://eoinobrien.ie"
-      : "http://localhost:3000");
- 
-  
+  const siteUrl = new URL(process.env["HOST"] ?? "https://eoinobrien.ie");
+
   const name = "Eoin O'Brien";
 
   const feed = new Feed({
@@ -18,14 +14,14 @@ export default async function generateFeeds(posts: Post[]) {
     id: siteUrl.href,
     link: siteUrl.href,
     language: "en", // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
-    image: `${siteUrl}/image.png`,
-    favicon: `${siteUrl}/favicon.ico`,
+//    image: new URL('image.png', siteUrl).href,
+//    favicon: new URL('favicon.ico', siteUrl).href,
     copyright: `All rights reserved ${new Date().getFullYear()}, ${name}`,
-    updated: new Date(2013, 6, 14), // optional, default = today
+    updated: parseISO(posts[0].date ?? new Date()),
     generator: "awesome", // optional, default = 'Feed for Node.js'
     feedLinks: {
-      json: `${siteUrl}/json`,
-      atom: `${siteUrl}/atom`,
+      json: new URL('json', siteUrl).href,
+      atom: new URL('atom', siteUrl).href,
     },
     author: {
       name: "Eoin O'Brien",
@@ -43,10 +39,13 @@ export default async function generateFeeds(posts: Post[]) {
         name: author.name,
       })),
       date: parseISO(post.date),
-      image: post.image && post.image.path && new URL(post.image.path, siteUrl).href,
-      category: post.categories && post.categories.map((category) => ({
-        name: category.title,
-      })),
+      image:
+        post.image && post.image.path && new URL(post.image.path, siteUrl).href,
+      category:
+        post.categories &&
+        post.categories.map((category) => ({
+          name: category.title,
+        })),
     });
   });
 

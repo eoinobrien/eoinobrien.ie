@@ -104,7 +104,7 @@
 }
 
 .markdown span > code {
-    @apply px-1 ;
+    @apply px-1 bg-zinc-950 dark:bg-zinc-700;
 }
 
 .markdown figure[data-rehype-pretty-code-figure] {
@@ -113,7 +113,7 @@
 
 .markdown div[data-rehype-pretty-code-title],
 .markdown figcaption[data-rehype-pretty-code-caption] {
-    @apply px-2 py-1 bg-zinc-200 dark:bg-zinc-700;
+    @apply px-2 py-1 bg-zinc-200 dark:bg-zinc-700 text-zinc-950 dark:text-zinc-50;
 }
 
 .markdown code[data-line-numbers] > [data-line]::before {
