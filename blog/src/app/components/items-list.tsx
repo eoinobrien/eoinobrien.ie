@@ -3,6 +3,7 @@ import Link from "next/link";
 import DateFormatter from "./date-formatter";
 import { PostTitle } from "./post-title";
 import { CoverImage } from "@/interfaces/cover-image";
+import { Card } from "./card";
 
 type Props = {
   title: string;
@@ -12,7 +13,7 @@ type Props = {
 
 export function ItemsList({ title, path, items }: Props) {
   return (
-    <div>
+    <div className="flex flex-col gap-y-4">
       <PostTitle>{title}</PostTitle>
       {items.map((item, index) => (
         <Link
@@ -20,7 +21,7 @@ export function ItemsList({ title, path, items }: Props) {
           className="decoration-transparent"
           key={index}
         >
-          <div className="my-4 rounded-md bg-zinc-100 dark:bg-zinc-900 p-4">
+          <Card>
             {item.image && (
               <Image
                 src={item.image.path}
@@ -32,15 +33,13 @@ export function ItemsList({ title, path, items }: Props) {
                 className="max-h-[20vh] mb-2 max-w-full object-cover object-center rounded"
               />
             )}
-            <h1 className="text-zinc-950 dark:text-zinc-50 text-2xl mb-2 font-bold tracking-tight leading-tight underline hover:decoration-transparent focus:decoration-transparent transition-all duration-300">
-              {item.title}
-            </h1>
+            <PostTitle small className="text-zinc-950 dark:text-zinc-50 mb-2 underline hover:decoration-transparent focus:decoration-transparent transition-all duration-300">{item.title}</PostTitle>
             {item.date && (
               <span className="text-sm text-zinc-600 dark:text-zinc-400">
                 <DateFormatter dateString={item.date} includeDay={false} />
               </span>
             )}
-          </div>
+          </Card>
         </Link>
       ))}
     </div>

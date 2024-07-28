@@ -37,20 +37,43 @@
 .markdown h4 a,
 .markdown h5 a,
 .markdown h6 a {
-    @apply no-underline;
-    color: var(--foreground-rgb);
+    @apply align-text-bottom;
+}
+
+.markdown h1 a svg,
+.markdown h2 a svg,
+.markdown h3 a svg,
+.markdown h4 a svg,
+.markdown h5 a svg,
+.markdown h6 a svg {
+    @apply hidden text-zinc-950 dark:text-zinc-50 pl-2;
+}
+
+.markdown h1:hover a svg,
+.markdown h2:hover a svg,
+.markdown h3:hover a svg,
+.markdown h4:hover a svg,
+.markdown h5:hover a svg,
+.markdown h6:hover a svg,
+.markdown h1:focus a svg,
+.markdown h2:focus a svg,
+.markdown h3:focus a svg,
+.markdown h4:focus a svg,
+.markdown h5:focus a svg,
+.markdown h6:focus a svg {
+    @apply inline-block;
 }
 
 .markdown h1 {
-    @apply text-4xl mt-8 mb-4 leading-snug;
+    @apply text-4xl mt-6 mb-4 leading-snug;
 }
 
 .markdown h2 {
-    @apply text-3xl mt-8 mb-4 leading-snug;
+    @apply text-3xl mt-6 mb-4 leading-snug;
 }
 
 .markdown h3 {
-    @apply text-2xl mt-8 mb-4 leading-snug;
+    @apply text-2xl mt-6 mb-4 leading-snug;
 }
 
 .markdown hr {

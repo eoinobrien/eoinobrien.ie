@@ -2,7 +2,7 @@ import { Author } from "@/interfaces/author";
 
 export function PostAuthors({ authors }: { authors?: Author[] }) {
   return (
-    <div>
+    <>
       {authors && (authors[0].name != "Eoin O'Brien" || authors.length > 1) && (
         <>
           By{" "}
@@ -14,7 +14,7 @@ export function PostAuthors({ authors }: { authors?: Author[] }) {
           ))}
         </>
       )}
-    </div>
+    </>
   );
 }
 

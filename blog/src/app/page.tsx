@@ -3,7 +3,7 @@ import markdownStyles from "./components/markdown-styles.module.css";
 
 export default function Home() {
   return (
-    <main className="">
+    <main>
       <div className={markdownStyles["markdown"]}>
         <Content />
       </div>
