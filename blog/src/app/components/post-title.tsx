@@ -4,19 +4,28 @@ import { PostCategory } from "./post-category";
 
 type Props = {
   categories?: Category[];
+  small?: boolean;
+  className?: string;
   children?: ReactNode;
 };
 
-export function PostTitle({ categories, children }: Props) {
+export function PostTitle({ categories, small, className, children }: Props) {
   return (
-    <div className="mb-4">
+    <>
       {categories &&
         categories.map((category, index) => (
           <PostCategory category={category} key={index} />
         ))}
-      <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
+      <h1
+        className={
+          className +
+          " " +
+          (small ? "text-2xl " : "text-4xl md:text-5xl ") +
+          "font-bold tracking-tight leading-tight"
+        }
+      >
         {children}
       </h1>
-    </div>
+    </>
   );
 }

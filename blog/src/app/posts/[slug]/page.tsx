@@ -5,6 +5,7 @@ import { getAllPosts, getPostBySlug } from "@/lib/post-api";
 import markdownToHtml from "@/lib/markdownToHtml";
 import { PostBody } from "@/app/components/post-body";
 import { PostHeader } from "@/app/components/post-header";
+import { Card } from "@/app/components/card";
 
 type Params = {
   params: {
@@ -22,16 +23,18 @@ export default async function Page({ params }: Params) {
   const content = await markdownToHtml(post.content || "");
 
   return (
-    <main className="rounded-md bg-zinc-100 dark:bg-zinc-900 p-4">
-      <PostHeader
-        title={post.title}
-        date={post.date}
-        authors={post.authors}
-        coverImage={post.image}
-        categories={post.categories}
-      />
-      <PostBody content={content} />
-    </main>
+    <Card>
+      <main className="flex flex-col gap-y-4">
+        <PostHeader
+          title={post.title}
+          date={post.date}
+          authors={post.authors}
+          coverImage={post.image}
+          categories={post.categories}
+        />
+        <PostBody content={content} />
+      </main>
+    </Card>
   );
 }
 
@@ -52,8 +55,8 @@ export function generateMetadata({ params }: Params): Metadata {
       title,
       images: post.image && [
         {
-          url: new URL(post.image.path, process.env['HOST']),
-          secureUrl: new URL(post.image.path, process.env['HOST']),
+          url: new URL(post.image.path, process.env["HOST"]),
+          secureUrl: new URL(post.image.path, process.env["HOST"]),
           alt: post.image.alt,
         },
       ],

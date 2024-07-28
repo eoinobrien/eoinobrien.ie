@@ -3,7 +3,7 @@ import { CoverImage } from "@/interfaces/cover-image";
 
 export function PostCoverImage({ path, alt, caption }: CoverImage) {
   return (
-    <figure className="mb-4">
+    <figure>
       <Image
         src={path}
         width={500}
