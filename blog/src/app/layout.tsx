@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { LayoutHeader } from "./components/layout-header";
 import { LayoutFooter } from "./components/layout-footer";
+import { Fraunces, Work_Sans  } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const bodyFont = Work_Sans({ subsets: ["latin"], variable: "--body-font" });
+const headingsFont = Fraunces({
+  subsets: ["latin"],
+  variable: "--headings-font",
+});
 
 export const metadata: Metadata = {
   title: "Eoin O'Brien",
@@ -18,7 +22,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className + " px-2 flex flex-col min-h-screen"}>
+      <body
+        className={
+          bodyFont.variable +
+          " " +
+          headingsFont.variable +
+          " px-2 flex flex-col min-h-screen"
+        }
+      >
         <LayoutHeader />
         <div className="flex-1">
           <div className="max-w-4xl mx-auto">{children}</div>

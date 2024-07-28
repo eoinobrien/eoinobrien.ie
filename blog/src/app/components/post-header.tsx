@@ -25,14 +25,14 @@ export function PostHeader({
     <>
       <PostTitle categories={categories}>{title}</PostTitle>
 
-      {coverImage?.path && <PostCoverImage {...coverImage} />}
-
       <div className="text-sm">
         <PostAuthors authors={authors} />
         <span className="text-zinc-600 dark:text-zinc-400">
           <DateFormatter dateString={date} />
         </span>
       </div>
+
+      {coverImage?.path && <PostCoverImage {...coverImage} />}
     </>
   );
 }
