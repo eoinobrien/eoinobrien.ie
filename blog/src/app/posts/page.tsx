@@ -1,13 +1,15 @@
 import { Metadata } from "next";
 import { getAllPosts } from "@/lib/post-api";
 import { ItemsList } from "../components/items-list";
+import { PostTitle } from "../components/post-title";
 
 export default async function Page() {
   const posts = getAllPosts();
 
   return (
     <main>
-      <ItemsList title="Posts" path="posts" items={posts} />
+      <PostTitle className="mb-4">Posts</PostTitle>
+      <ItemsList path="posts" items={posts} />
     </main>
   );
 }

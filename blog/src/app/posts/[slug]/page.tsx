@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Post } from "@/interfaces/post";
 import { getAllPosts, getPostBySlug } from "@/lib/post-api";
 import markdownToHtml from "@/lib/markdownToHtml";
-import { PostBody } from "@/app/components/post-body";
+import { MarkdownContentDangerousHtml } from "@/app/components/markdown-content";
 import { PostHeader } from "@/app/components/post-header";
 import { Card } from "@/app/components/card";
 
@@ -32,7 +32,7 @@ export default async function Page({ params }: Params) {
           coverImage={post.image}
           categories={post.categories}
         />
-        <PostBody content={content} />
+        <MarkdownContentDangerousHtml content={content} />
       </main>
     </Card>
   );

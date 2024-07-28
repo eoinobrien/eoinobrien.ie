@@ -20,7 +20,7 @@ export function PostAuthors({ authors }: { authors?: Author[] }) {
 
 function PostAuthor({ author }: { author: Author }) {
   return (
-    <address className="inline-block not-italic">
+    <address className="inline-block not-italic pr-2">
       <a
         rel="author"
         href="/"

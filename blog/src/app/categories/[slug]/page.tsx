@@ -3,6 +3,7 @@ import { getAllPostCategories, getPostsByCategory } from "@/lib/post-api";
 import { ItemsList } from "@/app/components/items-list";
 import { Category } from "@/interfaces/category";
 import { Post } from "@/interfaces/post";
+import { PostTitle } from "@/app/components/post-title";
 
 type Params = {
   params: {
@@ -15,8 +16,8 @@ export default async function Page({ params }: Params) {
 
   return (
     <main>
+      <PostTitle className="mb-4">{getCategoryTitle(params.slug, posts)}</PostTitle>
       <ItemsList
-        title={getCategoryTitle(params.slug, posts)}
         path="posts"
         items={posts}
       />

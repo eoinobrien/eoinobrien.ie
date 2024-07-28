@@ -1,12 +1,12 @@
 import Content from "./content.mdx";
-import markdownStyles from "./components/markdown-styles.module.css";
+import { getAllPosts } from "@/lib/post-api";
 
 export default function Home() {
+  const posts = getAllPosts();
+
   return (
     <main>
-      <div className={markdownStyles["markdown"]}>
-        <Content />
-      </div>
+      <Content posts={posts} />
     </main>
   );
 }
