@@ -28,12 +28,16 @@ export function getPostBySlug(slug: string): Post {
 }
 
 export function getAllPosts(): Post[] {
+  const isProduction = process.env.NODE_ENV == "production";
+
   const slugs = getPostSlugs();
   const posts = slugs
     .map((slug) => getPostBySlug(slug))
-    // filter out posts whose publication date is after now,
-    // This only happens at build time.
-    .filter(post => post.date <= new Date().toISOString())
+    // In production, filter out posts whose publication date is after now
+    // This only happens at build time, so future posts are not published automatically without a build
+    .filter((post) =>
+      isProduction ? post.date <= new Date().toISOString() : true
+    )
     // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 
