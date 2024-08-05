@@ -1,5 +1,6 @@
 ---
-type: post
+types:
+  - post
 title: "Using Podman instead of Docker Desktop on WSL2"
 authors:
   - name: "Eoin O'Brien"

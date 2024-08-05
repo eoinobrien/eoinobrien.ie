@@ -1,5 +1,6 @@
 ---
-type: project
+types:
+  - project
 title: "Upcoming City"
 authors:
   - name: "Eoin O'Brien"

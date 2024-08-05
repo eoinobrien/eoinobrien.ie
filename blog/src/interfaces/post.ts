@@ -3,7 +3,7 @@ import { Category } from "./category";
 import { CoverImage } from "./cover-image";
 
 export type Post = {
-  type: PostType;
+  types: PostType[];
   slug: string;
   title: string;
   date: string;
