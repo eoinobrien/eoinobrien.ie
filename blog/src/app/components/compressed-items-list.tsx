@@ -1,13 +1,11 @@
 import DateFormatter from "./date-formatter";
-import { MarkdownContentDangerousHtml } from "./markdown-content";
 import { PostTitle, PostTitleSize } from "./post-title";
 
 type Props = {
-  path: string;
-  items: { slug: string; title: string; subtitle?: string; date?: string }[];
+  items: { url: string; title: string; subtitle?: string; date?: string }[];
 };
 
-export async function CompressedItemsList({ path, items }: Props) {
+export async function CompressedItemsList({ items }: Props) {
   return (
     <div className="flex flex-col gap-y-4 grow">
       {await items.map(async (item, index) => {
@@ -15,7 +13,7 @@ export async function CompressedItemsList({ path, items }: Props) {
           <div key={index}>
             <PostTitle
               size={PostTitleSize.Small}
-              linkSlug={item.slug}
+              linkUrl={item.url}
               className="font-normal underline hover:decoration-transparent focus:decoration-transparent transition-all duration-300"
             >
               {item.title}
@@ -25,9 +23,7 @@ export async function CompressedItemsList({ path, items }: Props) {
                 <DateFormatter dateString={item.date} />
               </span>
             )}
-            {item.subtitle && (
-              <MarkdownContentDangerousHtml content={item.subtitle} />
-            )}
+            {item.subtitle && <span>{item.subtitle}</span>}
           </div>
         );
       })}

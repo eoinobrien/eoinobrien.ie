@@ -28,7 +28,7 @@ export function PostHeader({
 }: Props) {
   return (
     <>
-      <PostTitle linkSlug={linkSlug}>{title}</PostTitle>
+      <PostTitle linkUrl={linkSlug}>{title}</PostTitle>
 
       {subtitle && (
         <PostTitle
