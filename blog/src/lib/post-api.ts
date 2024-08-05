@@ -1,12 +1,14 @@
 import { Category } from "@/interfaces/category";
-import { Post } from "@/interfaces/post";
+import { Post, PostType } from "@/interfaces/post";
 import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
 import slugify from "slugify";
 import generateFeeds from "./feed";
+import { Project, ProjectStatus } from "@/interfaces/project";
 
 const postsDirectory = join(process.cwd(), "_posts");
+let cachedPosts: Post[] | null = null;
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
@@ -24,10 +26,20 @@ export function getPostBySlug(slug: string): Post {
 
   delete data.categories;
 
-  return { ...data, categories, slug: realSlug, content } as Post;
+
+  const type = PostType[data.type.toUpperCase() as keyof typeof PostType];
+
+  let result = { ...data, type, categories, slug: realSlug, content };
+
+  if (type == PostType.PROJECT) {
+    const status = data.status && ProjectStatus[data.status.toUpperCase() as keyof typeof ProjectStatus];
+    return { ...result, status  } as Project;
+  }
+
+  return result as Post;
 }
 
-export function getAllPosts(): Post[] {
+function getAllPostsFromDisk() {
   const isProduction = process.env.NODE_ENV == "production";
 
   const slugs = getPostSlugs();
@@ -38,12 +50,27 @@ export function getAllPosts(): Post[] {
     .filter((post) =>
       isProduction ? post.date <= new Date().toISOString() : true
     )
-    // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 
   generateFeeds(posts);
 
-  return posts;
+  cachedPosts = posts;
+}
+
+export function getAllPosts(type?: PostType): Post[] {
+  if (!cachedPosts) {
+    getAllPostsFromDisk();
+  }
+
+  if (cachedPosts) {
+    const posts = cachedPosts
+      // Filter based on the post type
+      .filter((post) => (type != undefined ? post.type === type : true));
+
+    return posts;
+  }
+
+  throw "Posts not cached correctly";
 }
 
 export function getAllPostCategories(): Category[] {

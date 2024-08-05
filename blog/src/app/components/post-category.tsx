@@ -1,23 +1,36 @@
 import { Category } from "@/interfaces/category";
 import Link from "next/link";
 
-type Props = {
+type PostCategoryProps = {
   category?: Category;
 };
 
-export function PostCategory({ category }: Props) {
+export function PostCategory({ category }: PostCategoryProps) {
   return (
-    <>
-      {category && category.title && (
-        <div className="text-sm uppercase text-blue-600 dark:text-blue-400">
-          <Link
-            href={"/categories/" + category.slug}
-            className="decoration-transparent hover:decoration-inherit focus:decoration-inherit"
-          >
-            {category.title}
-          </Link>
-        </div>
-      )}
-    </>
+    category &&
+    category.title && (
+      <span className="text-sm text-blue-600 dark:text-blue-400">
+        <Link
+          href={"/categories/" + category.slug}
+          className="decoration-transparent hover:decoration-inherit focus:decoration-inherit"
+        >
+          {category.title}
+        </Link>
+      </span>
+    )
+  );
+}
+
+type PostCategoriesProps = {
+  categories?: Category[];
+};
+
+export function PostCategories({ categories }: PostCategoriesProps) {
+  return (
+    categories &&
+    categories.length > 0 &&
+    categories.map((category, index) => (
+      <PostCategory category={category} key={index} />
+    ))
   );
 }

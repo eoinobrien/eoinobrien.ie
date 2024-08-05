@@ -14,17 +14,13 @@ export function CompressedItemsList({ path, items }: Props) {
     <div className="flex flex-col gap-y-4 grow">
       {items.map((item, index) => (
         <div key={index} className="pt-4">
-          <Link
-            href={`/${path}/` + item.slug}
-            className="decoration-transparent"
+          <PostTitle
+            size={PostTitleSize.Small}
+            linkSlug={item.slug}
+            className="font-normal underline hover:decoration-transparent focus:decoration-transparent transition-all duration-300"
           >
-            <PostTitle
-              size={PostTitleSize.Small}
-              className="font-normal underline hover:decoration-transparent focus:decoration-transparent transition-all duration-300"
-            >
-              {item.title}
-            </PostTitle>
-          </Link>
+            {item.title}
+          </PostTitle>
           {item.date && (
             <span className="text-xs text-zinc-600 dark:text-zinc-400">
               <DateFormatter dateString={item.date} />

@@ -1,15 +1,19 @@
 import { Metadata } from "next";
 import { getAllPosts } from "@/lib/post-api";
-import { ItemsList } from "../components/items-list";
 import { PostTitle } from "../components/post-title";
+import { FullPostCard } from "../components/full-post-card";
+import Link from "next/link";
 
 export default async function Page() {
-  const posts = getAllPosts();
+  const posts = getAllPosts().slice(0, 10);
 
   return (
-    <main>
+    <main className="flex flex-col gap-4">
       <PostTitle className="mb-4">Posts</PostTitle>
-      <ItemsList path="posts" items={posts} />
+      {posts.map((post, index) => 
+        <FullPostCard {...post} linkSlug={post.slug} key={index} />
+      )}
+      <Link href="archive" className="text-right">All posts</Link>
     </main>
   );
 }

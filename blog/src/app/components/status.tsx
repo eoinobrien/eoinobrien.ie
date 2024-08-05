@@ -5,21 +5,21 @@ type Props = {
 
 export function Status({ enabled, children }: Props) {
   return (
-    <span
+    <div
       className={
-        "body-font rounded-md px-2 py-1 border-2 text-xs inline-flex items-center " +
+        "body-font rounded-md px-2 py-1 border-2 text-xs inline-flex items-end " +
         (enabled
-          ? "bg-green-100 border-green-300 dark:bg-green-950 dark:border-green-900"
-          : "bg-zinc-200 border-zinc-300 dark:bg-zinc-800 dark:border-zinc-700")
+          ? "text-green-700 border-green-600 dark:text-green-500 dark:border-green-500"
+          : "text-zinc-600 border-zinc-400 dark:text-zinc-400 dark:border-zinc-400")
       }
     >
       <span
         className={
-          "w-[0.7rem] h-[0.7rem] inline-block mr-1 rounded-full " +
-          (enabled ? "bg-green-500" : "bg-zinc-400")
+          "w-[0.8rem] h-[0.8rem] inline-block mr-1 rounded-full " +
+          (enabled ? "bg-green-700 dark:bg-green-500" : "bg-zinc-600 dark:bg-zinc-400")
         }
       ></span>
-      {children}
-    </span>
+      <span className="uppercase inline-block leading-[0.87]">{children}</span>
+    </div>
   );
 }
