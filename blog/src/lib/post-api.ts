@@ -15,7 +15,7 @@ export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
-export async function getPostBySlug(slug: string): Promise<Post> {
+export async function getPostBySlugFromDisk(slug: string): Promise<Post> {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -33,7 +33,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
 
   const contentHtml = await markdownToHtml(content || "");
 
-  let result  = {
+  let result = {
     ...data,
     types,
     categories,
@@ -42,7 +42,6 @@ export async function getPostBySlug(slug: string): Promise<Post> {
   };
 
   if (types.indexOf(PostType.PROJECT) > -1) {
-    console.log((result as Project).links);
     const status =
       data.status &&
       ProjectStatus[data.status.toUpperCase() as keyof typeof ProjectStatus];
@@ -52,11 +51,24 @@ export async function getPostBySlug(slug: string): Promise<Post> {
   return result as Post;
 }
 
+export async function getPostBySlug(slug: string): Promise<Post | undefined> {
+  if (!cachedPosts) {
+    const posts = await getAllPostsFromDisk();
+    return filterPostsBySlug(posts, slug);
+  }
+
+  if (cachedPosts) {
+    return filterPostsBySlug(cachedPosts, slug);
+  }
+
+  throw new Error("Posts not cached correctly");
+}
+
 async function getAllPostsFromDisk(): Promise<Post[]> {
   const isProduction = process.env.NODE_ENV == "production";
 
   const slugs = getPostSlugs();
-  const posts = await Promise.all(slugs.map((slug) => getPostBySlug(slug)))
+  const posts = await Promise.all(slugs.map((slug) => getPostBySlugFromDisk(slug)))
     // In production, filter out posts whose publication date is after now
     // This only happens at build time, so future posts are not published automatically without a build
     .then((posts) =>
@@ -116,6 +128,14 @@ function filterPostsByType(posts: Post[], type?: PostType) {
       .filter((post) =>
         type != undefined ? post.types.indexOf(type) > -1 : true
       )
+  );
+}
+
+function filterPostsBySlug(posts: Post[], slug: string) {
+  return (
+    posts
+      // Filter based on the post type
+      .find((post) => post.slug === slug)
   );
 }
 

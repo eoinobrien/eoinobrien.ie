@@ -15,7 +15,7 @@ export default async function Page({ params }: Params) {
 
   if (!post) {
     return notFound();
-  };
+  }
 
   return <FullPostCard {...post} />;
 }
