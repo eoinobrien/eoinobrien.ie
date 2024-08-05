@@ -41,13 +41,13 @@ export function PostHeader({
 
       <div className="text-sm text-zinc-600 dark:text-zinc-400 inline-flex">
         {[
-          <DateFormatter dateString={date} />,
+          <DateFormatter dateString={date} key="1" />,
           authors &&
             (authors[0].name != "Eoin O'Brien" || authors.length > 1) && (
-              <PostAuthors authors={authors} />
+              <PostAuthors authors={authors} key="2" />
             ),
           categories && categories.length > 0 && (
-            <PostCategories categories={categories} />
+            <PostCategories categories={categories} key="3" />
           ),
         ]
           .filter((element) => {

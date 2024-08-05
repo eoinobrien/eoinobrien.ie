@@ -3,9 +3,9 @@ types:
   - project
   - post
 title: "Another Luas App"
+subtitle: "By far the best Luas app out there. Includes, details like last trams agus tá sé ar fáil i nGaeilge."
 authors:
   - name: "Eoin O'Brien"
-subtitle: "The perfect Luas app"
 date: "2024-07-02T20:00:00Z"
 links:
   - codeUrl: https://github.com/eoinobrien/SongkickToSpotify

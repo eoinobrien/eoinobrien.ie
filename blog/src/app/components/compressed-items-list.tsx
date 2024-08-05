@@ -1,33 +1,36 @@
-import Image from "next/image";
-import Link from "next/link";
 import DateFormatter from "./date-formatter";
+import { MarkdownContentDangerousHtml } from "./markdown-content";
 import { PostTitle, PostTitleSize } from "./post-title";
-import { CoverImage } from "@/interfaces/cover-image";
 
 type Props = {
   path: string;
-  items: { slug: string; title: string; date?: string; image?: CoverImage }[];
+  items: { slug: string; title: string; subtitle?: string; date?: string }[];
 };
 
-export function CompressedItemsList({ path, items }: Props) {
+export async function CompressedItemsList({ path, items }: Props) {
   return (
     <div className="flex flex-col gap-y-4 grow">
-      {items.map((item, index) => (
-        <div key={index} className="pt-4">
-          <PostTitle
-            size={PostTitleSize.Small}
-            linkSlug={item.slug}
-            className="font-normal underline hover:decoration-transparent focus:decoration-transparent transition-all duration-300"
-          >
-            {item.title}
-          </PostTitle>
-          {item.date && (
-            <span className="text-xs text-zinc-600 dark:text-zinc-400">
-              <DateFormatter dateString={item.date} />
-            </span>
-          )}
-        </div>
-      ))}
+      {await items.map(async (item, index) => {
+        return (
+          <div key={index}>
+            <PostTitle
+              size={PostTitleSize.Small}
+              linkSlug={item.slug}
+              className="font-normal underline hover:decoration-transparent focus:decoration-transparent transition-all duration-300"
+            >
+              {item.title}
+            </PostTitle>
+            {item.date && (
+              <span className="text-xs text-zinc-600 dark:text-zinc-400">
+                <DateFormatter dateString={item.date} />
+              </span>
+            )}
+            {item.subtitle && (
+              <MarkdownContentDangerousHtml content={item.subtitle} />
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }

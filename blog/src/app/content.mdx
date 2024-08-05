@@ -13,11 +13,17 @@ Hi, my name is Eoin. I'm a software engineer and an ardant supporter of public t
 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <Card>
         <PostTitle size={PostTitleSize.Medium} className="mb-4">Projects</PostTitle>
-        <CompressedItemsList path="projects" items={props.posts.filter(post => post.types.indexOf(PostType.PROJECT) > -1).slice(0, 4)} />
+        <CompressedItemsList path="projects" items={
+                  props.posts.filter(post => post.types.indexOf(PostType.PROJECT) > -1)
+                      .slice(0, 4)
+                      .map(project => { return { title: project.title, subtitle: project.subtitle, slug: project.slug } } )} />
     </Card>
     <Card>
         <PostTitle size={PostTitleSize.Medium} className="mb-4">Posts</PostTitle>
-        <CompressedItemsList path="posts" items={props.posts.filter(post => post.types.indexOf(PostType.POST) > -1).slice(0, 4)} />
+        <CompressedItemsList path="posts" items={
+                  props.posts.filter(post => post.types.indexOf(PostType.POST) > -1)
+                      .slice(0, 4)
+                      .map(post => { return { title: post.title, slug: post.slug, date: post.date } } )} />
         <div className="border-t-2 border-zinc-300 dark:border-zinc-700 mt-2 pt-2 text-right text-sm">
             <Link href="/posts">More posts</Link>
         </div>

@@ -6,6 +6,7 @@ export type Post = {
   types: PostType[];
   slug: string;
   title: string;
+  subtitle: string;
   date: string;
   image?: CoverImage;
   authors: Author[];
