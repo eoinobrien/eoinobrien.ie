@@ -1,5 +1,6 @@
 ---
-type: project
+types:
+ - project
 title: "Codebreaker"
 authors:
   - name: "Eoin O'Brien"

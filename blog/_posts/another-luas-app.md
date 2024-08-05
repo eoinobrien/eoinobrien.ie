@@ -1,10 +1,15 @@
 ---
-type: post
+types:
+  - project
+  - post
 title: "Another Luas App"
 authors:
   - name: "Eoin O'Brien"
 subtitle: "The perfect Luas app"
 date: "2024-07-02T20:00:00Z"
+links:
+  - codeUrl: https://github.com/eoinobrien/SongkickToSpotify
+  - projectUrl: https://anotherluasapp.com/
 categories:
   - Software
 tags:

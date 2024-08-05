@@ -26,14 +26,19 @@ export function getPostBySlug(slug: string): Post {
 
   delete data.categories;
 
+  const types: PostType[] = Object.values(data.types).map((type: unknown) => {
+    return PostType[(type as string).toUpperCase() as keyof typeof PostType];
+  });
 
-  const type = PostType[data.type.toUpperCase() as keyof typeof PostType];
+  let result = { ...data, types, categories, slug: realSlug, content };
 
-  let result = { ...data, type, categories, slug: realSlug, content };
+  console.log("HERE " + (types.indexOf(PostType.PROJECT) > -1));
 
-  if (type == PostType.PROJECT) {
-    const status = data.status && ProjectStatus[data.status.toUpperCase() as keyof typeof ProjectStatus];
-    return { ...result, status  } as Project;
+  if (types.indexOf(PostType.PROJECT) > -1) {
+    const status =
+      data.status &&
+      ProjectStatus[data.status.toUpperCase() as keyof typeof ProjectStatus];
+    return { ...result, status } as Project;
   }
 
   return result as Post;
@@ -65,7 +70,9 @@ export function getAllPosts(type?: PostType): Post[] {
   if (cachedPosts) {
     const posts = cachedPosts
       // Filter based on the post type
-      .filter((post) => (type != undefined ? post.type === type : true));
+      .filter((post) =>
+        type != undefined ? post.types.indexOf(type) > -1 : true
+      );
 
     return posts;
   }
