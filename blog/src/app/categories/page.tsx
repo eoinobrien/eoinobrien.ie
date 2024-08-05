@@ -4,7 +4,7 @@ import { ItemsList } from "../components/items-list";
 import { PostTitle } from "../components/post-title";
 
 export default async function Page() {
-  const categories = getAllPostCategories();
+  const categories = await getAllPostCategories();
 
   return (
     <main className="mt-4">

@@ -2,6 +2,7 @@
 types:
   - project
 title: "Upcoming City"
+subtitle: "Automatically updating playlists of artists playing in a city soon."
 authors:
   - name: "Eoin O'Brien"
 date: "2021-05-01T20:00:00Z"
@@ -10,5 +11,3 @@ links:
   - projectUrl: https://upcomingcity.eoin.co/
 status: offline
 ---
-
-Spotify playlists that update daily with the artists playing in a city soon.

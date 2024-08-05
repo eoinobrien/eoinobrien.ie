@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Post } from "@/interfaces/post";
 import { getAllPosts, getPostBySlug } from "@/lib/post-api";
-import markdownToHtml from "@/lib/markdownToHtml";
 import { FullPostCard } from "@/app/components/full-post-card";
 
 type Params = {
@@ -11,8 +10,8 @@ type Params = {
   };
 };
 
-export default function Page({ params }: Params) {
-  const post = getPostBySlug(params.slug);
+export default async function Page({ params }: Params) {
+  const post = await getPostBySlug(params.slug);
 
   if (!post) {
     return notFound();
@@ -21,8 +20,8 @@ export default function Page({ params }: Params) {
   return <FullPostCard {...post} />;
 }
 
-export function generateMetadata({ params }: Params): Metadata {
-  const post = getPostBySlug(params.slug);
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const post = await getPostBySlug(params.slug);
 
   if (!post) {
     return notFound();
@@ -50,7 +49,7 @@ export function generateMetadata({ params }: Params): Metadata {
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
 
   return posts.map((post: Post) => ({
     slug: post.slug,

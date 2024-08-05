@@ -6,6 +6,7 @@ import { join } from "path";
 import slugify from "slugify";
 import generateFeeds from "./feed";
 import { Project, ProjectStatus } from "@/interfaces/project";
+import markdownToHtml from "./markdownToHtml";
 
 const postsDirectory = join(process.cwd(), "_posts");
 let cachedPosts: Post[] | null = null;
@@ -14,7 +15,7 @@ export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
-export function getPostBySlug(slug: string): Post {
+export async function getPostBySlug(slug: string): Promise<Post> {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -30,9 +31,17 @@ export function getPostBySlug(slug: string): Post {
     return PostType[(type as string).toUpperCase() as keyof typeof PostType];
   });
 
-  let result = { ...data, types, categories, slug: realSlug, content };
+  const contentHtml = await markdownToHtml(content || "");
+  const subtitleHtml = await markdownToHtml(data.subtitle || "");
 
-  console.log("HERE " + (types.indexOf(PostType.PROJECT) > -1));
+  let result  = {
+    ...data,
+    types,
+    categories,
+    slug: realSlug,
+    content: contentHtml,
+    subtitle: subtitleHtml,
+  };
 
   if (types.indexOf(PostType.PROJECT) > -1) {
     const status =
@@ -44,44 +53,42 @@ export function getPostBySlug(slug: string): Post {
   return result as Post;
 }
 
-function getAllPostsFromDisk() {
+async function getAllPostsFromDisk(): Promise<Post[]> {
   const isProduction = process.env.NODE_ENV == "production";
 
   const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug))
+  const posts = await Promise.all(slugs.map((slug) => getPostBySlug(slug)))
     // In production, filter out posts whose publication date is after now
     // This only happens at build time, so future posts are not published automatically without a build
-    .filter((post) =>
-      isProduction ? post.date <= new Date().toISOString() : true
-    )
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+    .then((posts) =>
+      (isProduction
+        ? posts.filter((post) => post.date <= new Date().toISOString())
+        : posts
+      ).sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+    );
 
   generateFeeds(posts);
 
   cachedPosts = posts;
+
+  return posts;
 }
 
-export function getAllPosts(type?: PostType): Post[] {
+export async function getAllPosts(type?: PostType): Promise<Post[]> {
   if (!cachedPosts) {
-    getAllPostsFromDisk();
+    const posts = await getAllPostsFromDisk();
+    return filterPostsByType(posts, type);
   }
 
   if (cachedPosts) {
-    const posts = cachedPosts
-      // Filter based on the post type
-      .filter((post) =>
-        type != undefined ? post.types.indexOf(type) > -1 : true
-      );
-
-    return posts;
+    return filterPostsByType(cachedPosts, type);
   }
 
-  throw "Posts not cached correctly";
+  throw new Error("Posts not cached correctly");
 }
 
-export function getAllPostCategories(): Category[] {
-  const posts = getAllPosts();
+export async function getAllPostCategories(): Promise<Category[]> {
+  const posts = await getAllPosts();
 
   var flattenedCategories = new Map();
 
@@ -94,12 +101,22 @@ export function getAllPostCategories(): Category[] {
   return Array.from(flattenedCategories.values());
 }
 
-export function getPostsByCategory(category: string): Post[] {
-  const posts = getAllPosts();
+export async function getPostsByCategory(category: string): Promise<Post[]> {
+  const posts = await getAllPosts();
 
   return posts.filter(
     (post) =>
       post.categories && post.categories.some((c) => c.slug === category)
+  );
+}
+
+function filterPostsByType(posts: Post[], type?: PostType) {
+  return (
+    posts
+      // Filter based on the post type
+      .filter((post) =>
+        type != undefined ? post.types.indexOf(type) > -1 : true
+      )
   );
 }
 

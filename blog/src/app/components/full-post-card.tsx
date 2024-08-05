@@ -27,8 +27,6 @@ export async function FullPostCard({
   categories,
   linkSlug,
 }: Props) {
-  const htmlContent = await markdownToHtml(content || "");
-
   return (
     <Card>
       <main className="flex flex-col gap-y-4">
@@ -41,7 +39,7 @@ export async function FullPostCard({
           categories={categories}
           linkSlug={linkSlug}
         />
-        <MarkdownContentDangerousHtml content={htmlContent} />
+        <MarkdownContentDangerousHtml content={content} />
       </main>
     </Card>
   );

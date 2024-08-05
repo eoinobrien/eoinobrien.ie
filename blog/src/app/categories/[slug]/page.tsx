@@ -12,7 +12,7 @@ type Params = {
 };
 
 export default async function Page({ params }: Params) {
-  const posts = getPostsByCategory(params.slug);
+  const posts = await getPostsByCategory(params.slug);
 
   return (
     <main>
@@ -37,8 +37,8 @@ function getCategoryTitle(slug: string, posts: Post[]) {
   return slug;
 }
 
-export function generateMetadata({ params }: Params): Metadata {
-  const posts = getPostsByCategory(params.slug);
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const posts = await getPostsByCategory(params.slug);
 
   var title = `${params.slug} posts by Eoin O'Brien`;
 
@@ -59,7 +59,7 @@ export function generateMetadata({ params }: Params): Metadata {
 }
 
 export async function generateStaticParams() {
-  const categories = getAllPostCategories();
+  const categories = await getAllPostCategories();
 
   return categories.map((category: Category) => ({
     slug: category.slug,

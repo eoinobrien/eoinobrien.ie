@@ -1,11 +1,13 @@
 import { ReactNode } from "react";
 import markdownStyles from "./markdown-styles.module.css";
 
-type Props = {
+type MarkdownContentDangerousHtmlProps = {
   content: string;
 };
 
-export function MarkdownContentDangerousHtml({ content }: Props) {
+export function MarkdownContentDangerousHtml({
+  content,
+}: MarkdownContentDangerousHtmlProps) {
   return (
     <div
       className={markdownStyles["markdown"]}
@@ -14,6 +16,10 @@ export function MarkdownContentDangerousHtml({ content }: Props) {
   );
 }
 
-export function MarkdownContent({ children }: { children: ReactNode }) {
+type MarkdownContentProps = {
+  children: ReactNode;
+};
+
+export function MarkdownContent({ children }: MarkdownContentProps) {
   return <div className={markdownStyles["markdown"]}>{children}</div>;
 }
