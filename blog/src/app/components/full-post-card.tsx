@@ -37,7 +37,7 @@ export async function FullPostCard({
           authors={authors}
           coverImage={image}
           categories={categories}
-          linkSlug={linkSlug}
+          linkUrl={`/posts/${linkSlug}`}
         />
         <MarkdownContentDangerousHtml content={content} />
       </main>

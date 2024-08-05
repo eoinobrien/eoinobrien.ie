@@ -14,7 +14,7 @@ type Props = {
   date: string;
   authors?: Author[];
   categories?: Category[];
-  linkSlug?: string;
+  linkUrl?: string;
 };
 
 export function PostHeader({
@@ -24,11 +24,11 @@ export function PostHeader({
   date,
   authors,
   categories,
-  linkSlug,
+  linkUrl,
 }: Props) {
   return (
     <>
-      <PostTitle linkUrl={linkSlug}>{title}</PostTitle>
+      <PostTitle linkUrl={linkUrl}>{title}</PostTitle>
 
       {subtitle && (
         <PostTitle
