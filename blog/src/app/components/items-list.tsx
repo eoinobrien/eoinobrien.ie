@@ -31,7 +31,7 @@ export function ItemsList({ path, items }: Props) {
             className="decoration-transparent after:absolute after:inset-0"
           >
             <PostTitle
-              size={PostTitleSize.Normal}
+              size={PostTitleSize.Medium}
               className="mb-2 decoration-transparent group-hover:text-blue-600 group-hover:dark:text-blue-400 group-focus:text-blue-600 group-focus:dark:text-blue-400 group-hover:decoration-inherit group-focus:decoration-inherit transition-all duration-300"
             >
               {item.title}

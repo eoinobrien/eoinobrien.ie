@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 title: "Historical data set of Luas Real Time Information"
 authors:
   - name: "Eoin O'Brien"

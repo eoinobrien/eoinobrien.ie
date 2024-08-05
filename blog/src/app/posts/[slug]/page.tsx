@@ -3,9 +3,7 @@ import { notFound } from "next/navigation";
 import { Post } from "@/interfaces/post";
 import { getAllPosts, getPostBySlug } from "@/lib/post-api";
 import markdownToHtml from "@/lib/markdownToHtml";
-import { MarkdownContentDangerousHtml } from "@/app/components/markdown-content";
-import { PostHeader } from "@/app/components/post-header";
-import { Card } from "@/app/components/card";
+import { FullPostCard } from "@/app/components/full-post-card";
 
 type Params = {
   params: {
@@ -13,29 +11,14 @@ type Params = {
   };
 };
 
-export default async function Page({ params }: Params) {
+export default function Page({ params }: Params) {
   const post = getPostBySlug(params.slug);
 
   if (!post) {
     return notFound();
-  }
+  };
 
-  const content = await markdownToHtml(post.content || "");
-
-  return (
-    <Card>
-      <main className="flex flex-col gap-y-4">
-        <PostHeader
-          title={post.title}
-          date={post.date}
-          authors={post.authors}
-          coverImage={post.image}
-          categories={post.categories}
-        />
-        <MarkdownContentDangerousHtml content={content} />
-      </main>
-    </Card>
-  );
+  return <FullPostCard {...post} />;
 }
 
 export function generateMetadata({ params }: Params): Metadata {

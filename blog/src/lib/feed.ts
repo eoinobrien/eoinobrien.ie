@@ -17,7 +17,7 @@ export default async function generateFeeds(posts: Post[]) {
 //    image: new URL('image.png', siteUrl).href,
 //    favicon: new URL('favicon.ico', siteUrl).href,
     copyright: `All rights reserved ${new Date().getFullYear()}, ${name}`,
-    updated: parseISO(posts[0].date ?? new Date()),
+    updated: parseISO(posts[0]?.date ?? new Date().toISOString()),
     generator: "awesome", // optional, default = 'Feed for Node.js'
     feedLinks: {
       json: new URL('json', siteUrl).href,

@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 title: "Another Luas App"
 authors:
   - name: "Eoin O'Brien"
