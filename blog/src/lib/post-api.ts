@@ -32,7 +32,6 @@ export async function getPostBySlug(slug: string): Promise<Post> {
   });
 
   const contentHtml = await markdownToHtml(content || "");
-  const subtitleHtml = await markdownToHtml(data.subtitle || "");
 
   let result  = {
     ...data,
@@ -40,10 +39,10 @@ export async function getPostBySlug(slug: string): Promise<Post> {
     categories,
     slug: realSlug,
     content: contentHtml,
-    subtitle: subtitleHtml,
   };
 
   if (types.indexOf(PostType.PROJECT) > -1) {
+    console.log((result as Project).links);
     const status =
       data.status &&
       ProjectStatus[data.status.toUpperCase() as keyof typeof ProjectStatus];

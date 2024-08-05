@@ -9,14 +9,14 @@ export enum PostTitleSize {
 
 type Props = {
   size?: PostTitleSize;
-  linkSlug?: string;
+  linkUrl?: string;
   className?: string;
   children?: ReactNode;
 };
 
 export function PostTitle({
   size = PostTitleSize.Large,
-  linkSlug,
+  linkUrl,
   className,
   children,
 }: Props) {
@@ -42,8 +42,8 @@ export function PostTitle({
 
   return (
     <>
-      {linkSlug ? (
-        <Link href={`/posts/` + linkSlug}>{postTitle}</Link>
+      {linkUrl ? (
+        <Link href={linkUrl}>{postTitle}</Link>
       ) : (
         postTitle
       )}
