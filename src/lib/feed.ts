@@ -14,8 +14,7 @@ export default async function generateFeeds(posts: Post[]) {
     id: siteUrl.href,
     link: siteUrl.href,
     language: "en", // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
-//    image: new URL('image.png', siteUrl).href,
-//    favicon: new URL('favicon.ico', siteUrl).href,
+    favicon: new URL('favicon.ico', siteUrl).href,
     copyright: `All rights reserved ${new Date().getFullYear()}, ${name}`,
     updated: parseISO(posts[0]?.date ?? new Date().toISOString()),
     generator: "awesome", // optional, default = 'Feed for Node.js'
