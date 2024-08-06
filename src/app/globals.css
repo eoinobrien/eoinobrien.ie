@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-zinc-50 dark:bg-zinc-950 text-zinc-950 dark:text-zinc-50;
+  font-family: var(--body-font);
+}
+
+.body-font {
+  font-family: var(--body-font);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--headings-font);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+a {
+  @apply underline transition-all duration-300 decoration-2;
+}
+
+a:focus,
+a:hover {
+  @apply text-blue-600 dark:text-blue-400 hover:decoration-inherit focus:decoration-inherit;
+}
