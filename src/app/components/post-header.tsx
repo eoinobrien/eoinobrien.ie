@@ -46,16 +46,16 @@ export function PostHeader({
 
       <div className="text-sm text-stone-600 dark:text-stone-400 inline-flex">
         {[
-          <DateFormatter dateString={date} />,
+          <DateFormatter dateString={date} key="1" />,
           authors &&
             (authors[0].name != "Eoin O'Brien" || authors.length > 1) && (
-              <PostAuthors authors={authors} />
+              <PostAuthors authors={authors} key="2" />
             ),
           categories && categories.length > 0 && (
-            <PostCategories categories={categories} />
+            <PostCategories categories={categories} key="3" />
           ),
-          projectUrl && <ExternalLink url={projectUrl} linkText="View project" />,
-          codeUrl && <ExternalLink url={codeUrl} linkText="View code" />
+          projectUrl && <ExternalLink key="4" url={projectUrl} linkText="View project" />,
+          codeUrl && <ExternalLink key="5" url={codeUrl} linkText="View code" />
         ]
           .filter((element) => {
             return element;
