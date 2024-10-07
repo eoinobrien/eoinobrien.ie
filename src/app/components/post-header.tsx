@@ -33,13 +33,13 @@ export function PostHeader({
       {subtitle && (
         <PostTitle
           size={PostTitleSize.Small}
-          className="italic font-normal text-zinc-600"
+          className="italic font-normal text-stone-600"
         >
           {subtitle}
         </PostTitle>
       )}
 
-      <div className="text-sm text-zinc-600 dark:text-zinc-400 inline-flex">
+      <div className="text-sm text-stone-600 dark:text-stone-400 inline-flex">
         {[
           <DateFormatter dateString={date} key="1" />,
           authors &&

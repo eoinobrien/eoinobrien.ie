@@ -38,7 +38,7 @@ export function ItemsList({ path, items }: Props) {
             </PostTitle>
           </Link>
           {item.date && (
-            <span className="text-sm text-zinc-600 dark:text-zinc-400 decoration-transparent">
+            <span className="text-sm text-stone-600 dark:text-stone-400 decoration-transparent">
               <DateFormatter dateString={item.date} />
             </span>
           )}

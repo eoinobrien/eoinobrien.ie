@@ -76,24 +76,24 @@
 }
 
 .markdown hr {
-    @apply my-4 border-zinc-400 dark:border-zinc-600;
+    @apply my-4 border-stone-400 dark:border-stone-600;
 }
 
 .markdown blockquote {
-    @apply border-l-4 pl-4 border-zinc-300 dark:border-zinc-700;
+    @apply border-l-4 pl-4 border-stone-300 dark:border-stone-700;
 }
 
 .markdown table {
-    @apply border-separate border-spacing-0 border-2 border-l-0 border-t-0 border-zinc-300 dark:border-zinc-700 rounded;
+    @apply border-separate border-spacing-0 border-2 border-l-0 border-t-0 border-stone-300 dark:border-stone-700 rounded;
 }
 
 .markdown th {
-    @apply bg-zinc-200 dark:bg-zinc-800;
+    @apply bg-stone-200 dark:bg-stone-800;
 }
 
 .markdown td,
 .markdown th {
-    @apply p-2 border-t-2 border-l-2 border-zinc-300 dark:border-zinc-700;
+    @apply p-2 border-t-2 border-l-2 border-stone-300 dark:border-stone-700;
 }
 
 .markdown th:first-of-type {
@@ -126,16 +126,16 @@
 }
 
 .markdown span > code {
-    @apply px-1 bg-zinc-950 dark:bg-zinc-700;
+    @apply px-1 bg-stone-950 dark:bg-stone-700;
 }
 
 .markdown figure[data-rehype-pretty-code-figure] {
-    @apply border-2 border-zinc-300 dark:border-zinc-700 overflow-hidden rounded bg-zinc-950 dark:bg-zinc-800 text-[#E6EDF3];
+    @apply border-2 border-stone-300 dark:border-stone-700 overflow-hidden rounded bg-stone-950 dark:bg-stone-800 text-[#E6EDF3];
 }
 
 .markdown div[data-rehype-pretty-code-title],
 .markdown figcaption[data-rehype-pretty-code-caption] {
-    @apply px-2 py-1 bg-zinc-200 dark:bg-zinc-700 text-zinc-950 dark:text-zinc-50;
+    @apply px-2 py-1 bg-stone-200 dark:bg-stone-700 text-stone-950 dark:text-stone-50;
 }
 
 .markdown code[data-line-numbers] > [data-line]::before {
