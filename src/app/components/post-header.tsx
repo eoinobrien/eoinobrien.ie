@@ -6,6 +6,7 @@ import { PostCoverImage } from "./post-cover-image";
 import { Category } from "@/interfaces/category";
 import { PostAuthors } from "./post-author";
 import { PostCategories } from "./post-category";
+import { ExternalLink } from "./external-link";
 
 type Props = {
   title: string;
@@ -15,6 +16,8 @@ type Props = {
   authors?: Author[];
   categories?: Category[];
   linkUrl?: string;
+  projectUrl?: string;
+  codeUrl?: string;
 };
 
 export function PostHeader({
@@ -25,6 +28,8 @@ export function PostHeader({
   authors,
   categories,
   linkUrl,
+  projectUrl,
+  codeUrl
 }: Props) {
   return (
     <>
@@ -41,14 +46,16 @@ export function PostHeader({
 
       <div className="text-sm text-stone-600 dark:text-stone-400 inline-flex">
         {[
-          <DateFormatter dateString={date} key="1" />,
+          <DateFormatter dateString={date} />,
           authors &&
             (authors[0].name != "Eoin O'Brien" || authors.length > 1) && (
-              <PostAuthors authors={authors} key="2" />
+              <PostAuthors authors={authors} />
             ),
           categories && categories.length > 0 && (
-            <PostCategories categories={categories} key="3" />
+            <PostCategories categories={categories} />
           ),
+          projectUrl && <ExternalLink url={projectUrl} linkText="View project" />,
+          codeUrl && <ExternalLink url={codeUrl} linkText="View code" />
         ]
           .filter((element) => {
             return element;

@@ -4,6 +4,7 @@ import { Category } from "@/interfaces/category";
 import { PostHeader } from "./post-header";
 import { Card } from "./card";
 import { MarkdownContentDangerousHtml } from "./markdown-content";
+import { ProjectLinks } from "@/interfaces/project";
 
 type Props = {
   title: string;
@@ -14,6 +15,7 @@ type Props = {
   authors?: Author[];
   categories?: Category[];
   linkSlug?: string;
+  links?: ProjectLinks;
 };
 
 export async function FullPostCard({
@@ -25,6 +27,7 @@ export async function FullPostCard({
   authors,
   categories,
   linkSlug,
+  links
 }: Props) {
   return (
     <Card>
@@ -37,6 +40,8 @@ export async function FullPostCard({
           coverImage={image}
           categories={categories}
           linkUrl={`/posts/${linkSlug}`}
+          projectUrl={links?.projectUrl}
+          codeUrl={links?.codeUrl}
         />
         <MarkdownContentDangerousHtml content={content} />
       </main>

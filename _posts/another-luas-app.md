@@ -8,7 +8,7 @@ authors:
   - name: "Eoin O'Brien"
 date: "2024-07-02T20:00:00Z"
 links:
-  codeUrl: https://github.com/eoinobrien/SongkickToSpotify
+  codeUrl: https://github.com/eoinobrien/luas-app
   projectUrl: https://anotherluasapp.com/
 categories:
   - Software

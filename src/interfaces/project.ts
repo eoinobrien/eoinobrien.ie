@@ -5,7 +5,7 @@ export interface Project extends Post {
   links?: ProjectLinks;
 }
 
-type ProjectLinks = {
+export type ProjectLinks = {
   codeUrl?: string;
   projectUrl?: string;
 }
