@@ -4,7 +4,6 @@ import { Category } from "@/interfaces/category";
 import { PostHeader } from "./post-header";
 import { Card } from "./card";
 import { MarkdownContentDangerousHtml } from "./markdown-content";
-import markdownToHtml from "@/lib/markdownToHtml";
 
 type Props = {
   title: string;

@@ -11,6 +11,7 @@ export type Post = {
   image?: CoverImage;
   authors: Author[];
   content: string;
+  simplifiedContent: string;
   preview?: boolean;
   categories?: Category[];
   tags?: string[];

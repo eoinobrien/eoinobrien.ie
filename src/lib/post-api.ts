@@ -6,7 +6,8 @@ import { join } from "path";
 import slugify from "slugify";
 import generateFeeds from "./feed";
 import { Project, ProjectStatus } from "@/interfaces/project";
-import markdownToHtml from "./markdownToHtml";
+import { markdownToHtml, getMarkdownProcessor } from "./markdownToHtml";
+import { Processor } from "unified";
 
 const postsDirectory = join(process.cwd(), "_posts");
 let cachedPosts: Post[] | null = null;
@@ -15,7 +16,7 @@ export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
-export async function getPostBySlugFromDisk(slug: string): Promise<Post> {
+export async function getPostBySlugFromDisk(slug: string, processor: Processor<any, any, any, any, string>, simplifiedProcessor: Processor<any, any, any, any, string>): Promise<Post> {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -31,7 +32,8 @@ export async function getPostBySlugFromDisk(slug: string): Promise<Post> {
     return PostType[(type as string).toUpperCase() as keyof typeof PostType];
   });
 
-  const contentHtml = await markdownToHtml(content || "");
+  const contentHtml = await markdownToHtml(processor, content || "");
+  const simplifiedContentHtml = await markdownToHtml(simplifiedProcessor, content || "");
 
   let result = {
     ...data,
@@ -39,6 +41,7 @@ export async function getPostBySlugFromDisk(slug: string): Promise<Post> {
     categories,
     slug: realSlug,
     content: contentHtml,
+    simplifiedContent: simplifiedContentHtml,
   };
 
   if (types.indexOf(PostType.PROJECT) > -1) {
@@ -67,8 +70,11 @@ export async function getPostBySlug(slug: string): Promise<Post | undefined> {
 async function getAllPostsFromDisk(): Promise<Post[]> {
   const isProduction = process.env.NODE_ENV == "production";
 
+  const processor = await getMarkdownProcessor();
+  const simplifiedProcessor = await getMarkdownProcessor(false);
+
   const slugs = getPostSlugs();
-  const posts = await Promise.all(slugs.map((slug) => getPostBySlugFromDisk(slug)))
+  const posts = await Promise.all(slugs.map((slug) => getPostBySlugFromDisk(slug, processor, simplifiedProcessor)))
     // In production, filter out posts whose publication date is after now
     // This only happens at build time, so future posts are not published automatically without a build
     .then((posts) =>

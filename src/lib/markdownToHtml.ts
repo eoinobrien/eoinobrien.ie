@@ -1,4 +1,4 @@
-import { unified } from "unified";
+import { Processor, unified } from "unified";
 import emoji from "remark-emoji";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
@@ -11,8 +11,18 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import supersub from "remark-supersub";
 import { s } from "hastscript";
 
-export default async function markdownToHtml(markdown: string) {
-  const result = await unified()
+export async function markdownToHtml(
+  processor: Processor<any, any, any, any, string>,
+  markdown: string
+) {
+  const result = await processor.process(markdown);
+  return result.toString();
+}
+
+export async function getMarkdownProcessor(
+  autoLinkHeadings: boolean = true
+): Promise<Processor<any, any, any, any, string>> {
+  var processor = await unified()
     .use(remarkParse)
     .use(supersub)
     .use(emoji, { accessible: true })
@@ -28,8 +38,10 @@ export default async function markdownToHtml(markdown: string) {
         }),
       ],
     })
-    .use(rehypeSlug)
-    .use(rehypeAutolinkHeadings, {
+    .use(rehypeSlug);
+
+  if (autoLinkHeadings) {
+    processor = processor.use(rehypeAutolinkHeadings, {
       behavior: "append",
       content: s(
         "svg",
@@ -44,9 +56,8 @@ export default async function markdownToHtml(markdown: string) {
           clipRule: "evenodd",
         })
       ),
-    })
-    .use(rehypeStringify)
-    .process(markdown);
+    });
+  }
 
-  return result.toString();
+  return processor.use(rehypeStringify);
 }

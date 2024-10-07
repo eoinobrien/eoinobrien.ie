@@ -10,7 +10,7 @@ export default async function generateFeeds(posts: Post[]) {
 
   const feed = new Feed({
     title: "Eoin O'Brien",
-    description: "This is my personal feed!",
+    description: "Posts and projects that I've been working on.",
     id: siteUrl.href,
     link: siteUrl.href,
     language: "en", // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
@@ -33,7 +33,7 @@ export default async function generateFeeds(posts: Post[]) {
       title: post.title,
       id: post.slug,
       link: new URL(`/posts/${post.slug}`, siteUrl).href,
-      content: post.content,
+      content: post.simplifiedContent,
       author: post.authors.map((author) => ({
         name: author.name,
       })),
