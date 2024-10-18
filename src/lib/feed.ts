@@ -35,7 +35,8 @@ export default async function generateFeeds(posts: Post[]) {
       title: post.title,
       id: new URL(`/posts/${post.slug}`, siteUrl).href,
       link: new URL(`/posts/${post.slug}`, siteUrl).href,
-      content: post.simplifiedContent ? post.simplifiedContent : post.subtitle,
+      description: post.subtitle,
+      content: post.simplifiedContent,
       author: post.authors.map((author) => ({
         name: author.name,
       })),
