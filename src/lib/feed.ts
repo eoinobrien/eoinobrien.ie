@@ -19,19 +19,21 @@ export default async function generateFeeds(posts: Post[]) {
     updated: parseISO(posts[0]?.date ?? new Date().toISOString()),
     generator: "awesome", // optional, default = 'Feed for Node.js'
     feedLinks: {
-      json: new URL('json', siteUrl).href,
-      atom: new URL('atom', siteUrl).href,
+      rss: new URL('rss.xml', siteUrl).href,
+      json: new URL('feed.json', siteUrl).href,
+      atom: new URL('atom.xml', siteUrl).href,
     },
     author: {
       name: "Eoin O'Brien",
       link: siteUrl.href,
+      email: "mail@eoinobrien.ie"
     },
   });
 
   posts.forEach((post) => {
     feed.addItem({
       title: post.title,
-      id: post.slug,
+      id: new URL(`/posts/${post.slug}`, siteUrl).href,
       link: new URL(`/posts/${post.slug}`, siteUrl).href,
       content: post.simplifiedContent ? post.simplifiedContent : post.subtitle,
       author: post.authors.map((author) => ({

@@ -71,7 +71,7 @@ async function getAllPostsFromDisk(): Promise<Post[]> {
   const isProduction = process.env.NODE_ENV == "production";
 
   const processor = await getMarkdownProcessor();
-  const simplifiedProcessor = await getMarkdownProcessor(false);
+  const simplifiedProcessor = await getMarkdownProcessor(true);
 
   const slugs = getPostSlugs();
   const posts = await Promise.all(slugs.map((slug) => getPostBySlugFromDisk(slug, processor, simplifiedProcessor)))
