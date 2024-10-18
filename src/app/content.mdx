@@ -20,13 +20,16 @@ Hi, my name is Eoin. I'm a software engineer and an ardant supporter of public t
                           const url = project.links.projectUrl ?? project.links.codeUrl ?? `/path/${project.slug}`;
                           return { title: project.title, subtitle: project.subtitle, url: url }
                       })} />
+        <div className="border-t-2 border-stone-300 dark:border-stone-700 mt-2 pt-2 text-right text-sm">
+            <Link href="/posts">More projects</Link>
+        </div>
     </Card>
     <Card>
         <PostTitle size={PostTitleSize.Medium} className="mb-4">Posts</PostTitle>
         <CompressedItemsList path="posts" items={
                   props.posts.filter(post => post.types.indexOf(PostType.POST) > -1)
                       .slice(0, 4)
-                      .map(post => { return { title: post.title, url: `/posts/${post.slug}`, date: post.date } } )} />
+                      .map(post => { return { title: post.title, subtitle: post.subtitle, url: `/posts/${post.slug}`, date: post.date } } )} />
         <div className="border-t-2 border-stone-300 dark:border-stone-700 mt-2 pt-2 text-right text-sm">
             <Link href="/posts">More posts</Link>
         </div>

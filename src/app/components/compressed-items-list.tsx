@@ -18,11 +18,6 @@ export async function CompressedItemsList({ items }: Props) {
             >
               {item.title}
             </PostTitle>
-            {item.date && (
-              <span className="text-xs text-stone-600 dark:text-stone-400">
-                <DateFormatter dateString={item.date} />
-              </span>
-            )}
             {item.subtitle && <span>{item.subtitle}</span>}
           </div>
         );

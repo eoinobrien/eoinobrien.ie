@@ -1,7 +1,7 @@
 ---
 types:
   - project
-title: "Deposit Return Bottle Checker Apple Shortcut"
+title: "Deposit Return Bottle Checker"
 subtitle: "An Apple Shortcut that scans a bottle's barcode and checks against the deposit return website to see if the bottle is a part of the scheme."
 authors:
   - name: "Eoin O'Brien"
