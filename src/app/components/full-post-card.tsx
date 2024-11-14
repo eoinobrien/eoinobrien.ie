@@ -16,6 +16,7 @@ type Props = {
   categories?: Category[];
   linkSlug?: string;
   links?: ProjectLinks;
+  className?: string;
 };
 
 export async function FullPostCard({
@@ -27,10 +28,11 @@ export async function FullPostCard({
   authors,
   categories,
   linkSlug,
-  links
+  links,
+  className
 }: Props) {
   return (
-    <Card>
+    <Card className={className}>
       <main className="flex flex-col gap-y-4">
         <PostHeader
           title={title}
@@ -39,7 +41,7 @@ export async function FullPostCard({
           authors={authors}
           coverImage={image}
           categories={categories}
-          linkUrl={`/posts/${linkSlug}`}
+          linkUrl={linkSlug && `/posts/${linkSlug}`}
           projectUrl={links?.projectUrl}
           codeUrl={links?.codeUrl}
         />

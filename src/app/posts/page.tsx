@@ -9,10 +9,15 @@ export default async function Page() {
 
   return (
     <main className="flex flex-col gap-4">
-      {posts.map((post, index) => 
-        <FullPostCard {...post} linkSlug={post.slug} key={index} />
-      )}
-      <Link href="archive" className="text-right">All posts</Link>
+      {posts.map((post, index) => (
+        <>
+          {index == 0 ? <></> : <hr className="border-stone-500" />}
+          <FullPostCard {...post} linkSlug={post.slug} key={index} />
+        </>
+      ))}
+      <Link href="archive" className="text-right">
+        All posts
+      </Link>
     </main>
   );
 }

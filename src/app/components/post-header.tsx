@@ -29,7 +29,7 @@ export function PostHeader({
   categories,
   linkUrl,
   projectUrl,
-  codeUrl
+  codeUrl,
 }: Props) {
   return (
     <>
@@ -44,7 +44,7 @@ export function PostHeader({
         </PostTitle>
       )}
 
-      <div className="text-sm text-stone-600 dark:text-stone-400 inline-flex">
+      <div className="text-sm text-stone-600 dark:text-stone-400">
         {[
           <DateFormatter dateString={date} key="1" />,
           authors &&
@@ -54,8 +54,12 @@ export function PostHeader({
           categories && categories.length > 0 && (
             <PostCategories categories={categories} key="3" />
           ),
-          projectUrl && <ExternalLink key="4" url={projectUrl} linkText="View project" />,
-          codeUrl && <ExternalLink key="5" url={codeUrl} linkText="View code" />
+          projectUrl && (
+            <ExternalLink key="4" url={projectUrl} linkText="View project" />
+          ),
+          codeUrl && (
+            <ExternalLink key="5" url={codeUrl} linkText="View code" />
+          ),
         ]
           .filter((element) => {
             return element;
@@ -64,7 +68,7 @@ export function PostHeader({
             <span key={index}>
               {!!index && (
                 <span className="px-2" aria-hidden>
-                  •
+                  <wbr />•<wbr />
                 </span>
               )}
               {section}

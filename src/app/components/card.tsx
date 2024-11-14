@@ -8,7 +8,7 @@ export function Card({ className, children }: Props) {
     <div
       className={
         (className ? `${className} ` : "") +
-        "rounded-md bg-stone-100 dark:bg-stone-900 p-4 flex flex-col"
+        "p-4 flex flex-col"
       }
     >
       {children}
