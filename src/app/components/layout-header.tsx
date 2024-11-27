@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function LayoutHeader() {
   return (
-    <div className="bg-stone-100 dark:bg-stone-900">
+    <div>
       <div className="flex my-4 max-w-5xl mx-auto">
         <h1 className="flex-1 font-extrabold text-2xl">
           <Link href="/" className="decoration-transparent">Eoin O&apos;Brien</Link>

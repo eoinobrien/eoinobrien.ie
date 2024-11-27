@@ -38,7 +38,7 @@ export function PostHeader({
       {subtitle && (
         <PostTitle
           size={PostTitleSize.Small}
-          className="italic font-normal text-stone-600"
+          className="italic font-normal text-stone-600 dark:text-stone-400"
         >
           {subtitle}
         </PostTitle>
