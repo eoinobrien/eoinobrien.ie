@@ -24,6 +24,10 @@ h6 {
   .text-balance {
     text-wrap: balance;
   }
+
+  .center-content {
+    @apply w-full max-w-4xl mx-auto;
+  }
 }
 
 a {

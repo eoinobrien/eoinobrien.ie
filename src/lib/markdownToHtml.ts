@@ -30,6 +30,10 @@ export async function getMarkdownProcessor(
     .use(remarkRehype)
     .use(rehypeSlug);
 
+  if (simplified)
+  {
+  }
+
   if (!simplified) {
     processor = processor
       .use(rehypePrettyCode, {

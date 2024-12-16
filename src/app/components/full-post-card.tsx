@@ -33,7 +33,7 @@ export async function FullPostCard({
 }: Props) {
   return (
     <Card className={className}>
-      <main className="flex flex-col gap-y-4">
+      <main className="center-content flex flex-col gap-y-4">
         <PostHeader
           title={title}
           subtitle={subtitle}

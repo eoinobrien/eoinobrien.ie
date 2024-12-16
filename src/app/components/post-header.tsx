@@ -6,7 +6,7 @@ import { PostCoverImage } from "./post-cover-image";
 import { Category } from "@/interfaces/category";
 import { PostAuthors } from "./post-author";
 import { PostCategories } from "./post-category";
-import { ExternalLink } from "./external-link";
+import { ExternalButton } from "./external-button";
 
 type Props = {
   title: string;
@@ -54,12 +54,6 @@ export function PostHeader({
           categories && categories.length > 0 && (
             <PostCategories categories={categories} key="3" />
           ),
-          projectUrl && (
-            <ExternalLink key="4" url={projectUrl} linkText="View project" />
-          ),
-          codeUrl && (
-            <ExternalLink key="5" url={codeUrl} linkText="View code" />
-          ),
         ]
           .filter((element) => {
             return element;
@@ -77,6 +71,13 @@ export function PostHeader({
       </div>
 
       {coverImage?.path && <PostCoverImage {...coverImage} />}
+
+      <div className="flex flex-row gap-2">
+        {projectUrl && (
+          <ExternalButton key="4" url={projectUrl} linkText="View project website" />
+        )}
+        {codeUrl && <ExternalButton key="5" url={codeUrl} linkText="View code" />}
+      </div>
     </>
   );
 }

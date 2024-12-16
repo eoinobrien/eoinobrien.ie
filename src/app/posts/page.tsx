@@ -8,14 +8,12 @@ export default async function Page() {
   const posts = (await getAllPosts(PostType.POST)).slice(0, 10);
 
   return (
-    <main className="flex flex-col gap-4">
+    <main className="flex flex-col divide-y-4 divide-stone-400 divide-dotted">
       {posts.map((post, index) => (
-        <>
-          {index == 0 ? <></> : <hr className="border-stone-500" />}
-          <FullPostCard {...post} linkSlug={post.slug} key={index} />
-        </>
+        <FullPostCard {...post} linkSlug={post.slug} key={index} />
       ))}
-      <Link href="archive" className="text-right">
+
+      <Link href="archive" className="text-center p-4 font-bold hover:bg-stone-200 hover:text-blue-700">
         All posts
       </Link>
     </main>
