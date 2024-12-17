@@ -15,7 +15,7 @@ export default async function Page({ params }: Params) {
   const posts = await getPostsByCategory(params.slug);
 
   return (
-    <main>
+    <main className="center-content">
       <PostTitle className="mb-4">{getCategoryTitle(params.slug, posts)}</PostTitle>
       <ItemsList
         path="posts"

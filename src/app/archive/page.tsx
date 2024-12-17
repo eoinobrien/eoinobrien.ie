@@ -7,7 +7,7 @@ export default async function Page() {
   const posts = await getAllPosts();
 
   return (
-    <main className="mt-4">
+    <main className="center-content">
       <PostTitle className="mb-4">All posts</PostTitle>
       <ItemsList path="posts" items={posts} />
     </main>

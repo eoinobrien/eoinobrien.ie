@@ -5,7 +5,7 @@ import markdownStyles from "../components/markdown-styles.module.css";
 
 export default async function Page() {
   return (
-    <main className="rounded-md bg-stone-100 dark:bg-stone-900 p-4">
+    <main className="center-content">
       <PostTitle>Contact</PostTitle>
       <div className={markdownStyles["markdown"]}>
         <Content />

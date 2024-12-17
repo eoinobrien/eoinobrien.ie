@@ -12,7 +12,7 @@ type Props = {
 
 export function ItemsList({ path, items }: Props) {
   return (
-    <div className="flex flex-col gap-y-4">
+    <div className="flex flex-col divide-y-4 divide-stone-400 divide-dotted">
       {items.map((item, index) => (
         <Card className="group relative" key={index}>
           {item.image && (

@@ -7,7 +7,7 @@ export default async function Page() {
   const categories = await getAllPostCategories();
 
   return (
-    <main className="mt-4">
+    <main className="center-content">
       <PostTitle className="mb-4">Post categories</PostTitle>
       <ItemsList path="categories" items={categories} />
     </main>
