@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { LayoutHeader } from "./components/layout-header";
 import { LayoutFooter } from "./components/layout-footer";
-import { Fraunces, Work_Sans  } from "next/font/google";
+import { Fraunces, Work_Sans } from "next/font/google";
 
 const bodyFont = Work_Sans({ subsets: ["latin"], variable: "--body-font" });
 const headingsFont = Fraunces({
@@ -22,13 +22,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="RSS Feed"
+          href={
+            new URL(
+              "rss.xml",
+              new URL(process.env["HOST"] ?? "https://eoinobrien.ie")
+            ).href
+          }
+        />
+      </head>
       <body
-        className={
-          bodyFont.variable +
-          " " +
-          headingsFont.variable +
-          " px-2 flex flex-col min-h-screen"
-        }
+        className={`
+          ${bodyFont.variable}
+          ${headingsFont.variable}
+           px-2 flex flex-col min-h-screen`}
       >
         <LayoutHeader />
         <div className="flex-1">
