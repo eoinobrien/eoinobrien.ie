@@ -54,6 +54,20 @@ export function PostHeader({
           categories && categories.length > 0 && (
             <PostCategories categories={categories} key="3" />
           ),
+          (projectUrl || codeUrl) && (
+            <span className="inline-flex gap-2">
+              {projectUrl && (
+                <ExternalButton
+                  key="4"
+                  url={projectUrl}
+                  linkText="Project website"
+                />
+              )}
+              {codeUrl && (
+                <ExternalButton key="5" url={codeUrl} linkText="Source code" />
+              )}
+            </span>
+          ),
         ]
           .filter((element) => {
             return element;
@@ -71,13 +85,6 @@ export function PostHeader({
       </div>
 
       {coverImage?.path && <PostCoverImage {...coverImage} />}
-
-      <div className="flex flex-row gap-2">
-        {projectUrl && (
-          <ExternalButton key="4" url={projectUrl} linkText="View project website" />
-        )}
-        {codeUrl && <ExternalButton key="5" url={codeUrl} linkText="View code" />}
-      </div>
     </>
   );
 }

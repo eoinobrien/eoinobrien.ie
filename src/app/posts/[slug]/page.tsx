@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Post } from "@/interfaces/post";
 import { getAllPosts, getPostBySlug } from "@/lib/post-api";
 import { FullPostCard } from "@/app/components/full-post-card";
+import { SplitView } from "@/app/components/split-view";
 
 type Params = {
   params: {
@@ -17,7 +18,7 @@ export default async function Page({ params }: Params) {
     return notFound();
   }
 
-  return <FullPostCard {...post} />;
+  return <SplitView left={<FullPostCard {...post} />} right={undefined} />;
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -27,9 +28,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     return notFound();
   }
 
-  const title = `${post.title} by ${post.authors
-    .map((author) => author.name)
-    .join(", ")}`;
+  const authors = post.authors
+    ? post.authors.map((author) => author.name).join(", ")
+    : "Eoin O'Brien";
+
+  const title = `${post.title} by ${authors}`;
 
   return {
     title,

@@ -12,7 +12,7 @@ type Props = {
 
 export function ItemsList({ path, items }: Props) {
   return (
-    <div className="flex flex-col divide-y-4 divide-stone-400 divide-dotted">
+    <div className="flex flex-col divide-y-4 divide-eoinblue-400 divide-dotted">
       {items.map((item, index) => (
         <Card className="group relative" key={index}>
           {item.image && (
@@ -32,7 +32,7 @@ export function ItemsList({ path, items }: Props) {
           >
             <PostTitle
               size={PostTitleSize.Medium}
-              className="mb-2 decoration-transparent group-hover:text-blue-600 group-hover:dark:text-blue-400 group-focus:text-blue-600 group-focus:dark:text-blue-400 group-hover:decoration-inherit group-focus:decoration-inherit transition-all duration-300"
+              className="mb-2 decoration-transparent group-hover:text-eoinblue-700 group-hover:dark:text-eoinblue-300 group-focus:text-eoinblue-700 group-focus:dark:text-eoinblue-300 group-hover:decoration-inherit group-focus:decoration-inherit transition-all duration-300"
             >
               {item.title}
             </PostTitle>

@@ -39,7 +39,7 @@ export default function RootLayout({
         className={`
           ${bodyFont.variable}
           ${headingsFont.variable}
-           px-2 flex flex-col min-h-screen`}
+           flex flex-col min-h-screen`}
       >
         <LayoutHeader />
         <div className="flex-1">

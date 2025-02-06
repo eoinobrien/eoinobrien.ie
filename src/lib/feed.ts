@@ -14,32 +14,40 @@ export default async function generateFeeds(posts: Post[]) {
     id: siteUrl.href,
     link: siteUrl.href,
     language: "en", // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
-    favicon: new URL('favicon.ico', siteUrl).href,
+    favicon: new URL("favicon.ico", siteUrl).href,
     copyright: `All rights reserved ${new Date().getFullYear()}, ${name}`,
     updated: parseISO(posts[0]?.date ?? new Date().toISOString()),
     generator: "awesome", // optional, default = 'Feed for Node.js'
     feedLinks: {
-      rss: new URL('rss.xml', siteUrl).href,
-      json: new URL('feed.json', siteUrl).href,
-      atom: new URL('atom.xml', siteUrl).href,
+      rss: new URL("rss.xml", siteUrl).href,
+      json: new URL("feed.json", siteUrl).href,
+      atom: new URL("atom.xml", siteUrl).href,
     },
     author: {
       name: "Eoin O'Brien",
       link: siteUrl.href,
-      email: "mail@eoinobrien.ie"
+      email: "mail@eoinobrien.ie",
     },
   });
 
   posts.forEach((post) => {
+    const author = post.authors
+      ? post.authors.map((author) => ({
+          name: author.name,
+        }))
+      : [
+          {
+            name: "Eoin O'Brien",
+          },
+        ];
+
     feed.addItem({
       title: post.title,
       id: new URL(`/posts/${post.slug}`, siteUrl).href,
       link: new URL(`/posts/${post.slug}`, siteUrl).href,
       description: post.subtitle,
       content: post.simplifiedContent,
-      author: post.authors.map((author) => ({
-        name: author.name,
-      })),
+      author: author,
       date: parseISO(post.date),
       image:
         post.image && post.image.path && new URL(post.image.path, siteUrl).href,

@@ -2,15 +2,26 @@ import { Metadata } from "next";
 import { getAllPostCategories } from "@/lib/post-api";
 import { ItemsList } from "../components/items-list";
 import { PostTitle } from "../components/post-title";
+import { SplitView } from "../components/split-view";
 
 export default async function Page() {
   const categories = await getAllPostCategories();
 
   return (
-    <main className="center-content">
-      <PostTitle className="mb-4">Post categories</PostTitle>
-      <ItemsList path="categories" items={categories} />
-    </main>
+    <SplitView
+      left={
+        <>
+          <PostTitle className="m-4">Post categories</PostTitle>
+          <ItemsList
+            path="categories"
+            items={categories.map(category => ({
+              ...category,
+              title: `${category.title} (${category.count ?? 0})`
+            }))}
+          />
+        </>
+      }
+    />
   );
 }
 

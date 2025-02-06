@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 body {
-  @apply bg-stone-100 dark:bg-stone-900 text-stone-950 dark:text-stone-50;
+  @apply bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-100;
   font-family: var(--body-font);
 }
 
-.body-font {
+.font-body {
   font-family: var(--body-font);
 }
 
@@ -16,7 +16,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.font-heading {
   font-family: var(--headings-font);
 }
 
@@ -36,5 +37,5 @@ a {
 
 a:focus,
 a:hover {
-  @apply text-blue-600 dark:text-blue-400 hover:decoration-inherit focus:decoration-inherit;
+  @apply text-eoinblue-600 dark:text-eoinblue-400 hover:decoration-inherit focus:decoration-inherit;
 }

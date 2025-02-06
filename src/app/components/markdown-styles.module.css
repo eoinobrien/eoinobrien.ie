@@ -1,5 +1,5 @@
 .markdown {
-    @apply text-lg leading-relaxed;
+    @apply leading-relaxed;
 }
 
 .markdown p,
@@ -45,7 +45,7 @@
 .markdown h4 a svg,
 .markdown h5 a svg,
 .markdown h6 a svg {
-    @apply hidden text-blue-600 dark:text-blue-400 pl-2 size-8;
+    @apply hidden text-eoinblue-700 dark:text-eoinblue-300 pl-2 size-8;
 }
 
 .markdown h1:hover a svg,
@@ -64,15 +64,15 @@
 }
 
 .markdown h1 {
-    @apply text-3xl font-semibold mt-6 mb-4 leading-snug;
-}
-
-.markdown h2 {
     @apply text-2xl font-semibold mt-6 mb-4 leading-snug;
 }
 
-.markdown h3 {
+.markdown h2 {
     @apply text-xl font-semibold mt-6 mb-4 leading-snug;
+}
+
+.markdown h3 {
+    @apply text-lg font-semibold mt-6 mb-4 leading-snug;
 }
 
 .markdown hr {

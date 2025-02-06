@@ -1,9 +1,15 @@
 import { Metadata } from "next";
-import { getAllPostCategories, getPostsByCategory } from "@/lib/post-api";
+import {
+  getAllPostCategories,
+  getAllPosts,
+  getPostsByCategory,
+} from "@/lib/post-api";
 import { ItemsList } from "@/app/components/items-list";
 import { Category } from "@/interfaces/category";
 import { Post } from "@/interfaces/post";
-import { PostTitle } from "@/app/components/post-title";
+import { PostTitle, PostTitleSize } from "@/app/components/post-title";
+import Link from "next/link";
+import { SplitView } from "@/app/components/split-view";
 
 type Params = {
   params: {
@@ -12,16 +18,41 @@ type Params = {
 };
 
 export default async function Page({ params }: Params) {
-  const posts = await getPostsByCategory(params.slug);
+  const categoryPosts = await getPostsByCategory(params.slug);
+
+  const categories = await getAllPostCategories();
 
   return (
-    <main className="center-content">
-      <PostTitle className="mb-4">{getCategoryTitle(params.slug, posts)}</PostTitle>
-      <ItemsList
-        path="posts"
-        items={posts}
-      />
-    </main>
+    <SplitView
+      left={
+        <>
+          <PostTitle className="m-4">
+            {getCategoryTitle(params.slug, categoryPosts)}
+          </PostTitle>
+          <ItemsList path="posts" items={categoryPosts} />
+        </>
+      }
+      right={
+        <>
+          <PostTitle size={PostTitleSize.Medium} className="my-4 text-center">
+            All categories
+          </PostTitle>
+
+          <ul className="text-center">
+            {categories.map(category => (
+              <li key={category.slug}>
+                <Link
+                  href={`/categories/${category.slug}`}
+                  className="no-underline hover:underline"
+                >
+                  {category.title} ({category.count ?? 0})
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </>
+      }
+    />
   );
 }
 
@@ -43,11 +74,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   var title = `${params.slug} posts by Eoin O'Brien`;
 
   if (posts.length > 0) {
-  const category = posts[0].categories?.find(
-    (category) => category.slug == params.slug
-  );
+    const category = posts[0].categories?.find(
+      (category) => category.slug == params.slug
+    );
 
-    title = `${category?.title} posts  by Eoin O'Brien`;
+    title = `${category?.title} posts by Eoin O'Brien`;
   }
 
   return {

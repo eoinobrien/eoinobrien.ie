@@ -1,37 +1,66 @@
 import Link from "next/link";
-import { Card } from "./components/card";
-import { CompressedItemsList } from "./components/compressed-items-list";
+import { Card } from "@/app/components/card";
+import { CardItemsList } from "@/app/components/card-items-list";
+import { CompressedItemsList } from "@/app/components/compressed-items-list";
+import { FullPostCard } from "@/app/components/full-post-card";
 import { MarkdownContent } from "@/app/components/markdown-content";
-import { PostTitle, PostTitleSize } from "./components/post-title";
-import { Status } from "./components/status";
+import { PostTitle, PostTitleSize } from "@/app/components/post-title";
 import { PostType } from "@/interfaces/post";
+import { SplitView } from "@/app/components/split-view";
 
-<MarkdownContent className='center-content'>
-Hi, my name is Eoin. I'm a software engineer and an ardant supporter of public transport and sustainable transportation.
-</MarkdownContent>
+<main className="w-full flex flex-col divide-y-4 divide-eoinblue-400 divide-dotted">
+    {props.posts
+        .filter((post) => post.types.indexOf(PostType.POST) > -1)
+        .slice(0, 8)
+        .map((post, index) => (
+            <SplitView
+                wrapReversed
+                left={<FullPostCard key={index} {...post} linkSlug={post.slug} />}
+                right={
+                    index === 0 && (
+                        <Card className="flex flex-col gap-4 divide-y-4 divide-eoinblue-400 divide-dotted">
+                            <MarkdownContent className="text-lg ">
+                                Hi, my name is Eoin. I'm a software engineer and an ardant
+                                supporter of public transport and sustainable
+                                transportation.
+                            </MarkdownContent>
 
-<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-    <Card>
-        <PostTitle size={PostTitleSize.Medium} className="mb-4">Projects</PostTitle>
-        <CompressedItemsList path="projects" items={
-                  props.posts.filter(post => post.types.indexOf(PostType.PROJECT) > -1)
-                      .slice(0, 4)
-                      .map(project => {
-                          const url = project.links.projectUrl ?? project.links.codeUrl ?? `/path/${project.slug}`;
-                          return { title: project.title, subtitle: project.subtitle, url: url }
-                      })} />
-        <div className="border-t-2 border-stone-300 dark:border-stone-700 mt-2 pt-2 text-right text-sm">
-            <Link href="/posts">More projects</Link>
-        </div>
-    </Card>
-    <Card>
-        <PostTitle size={PostTitleSize.Medium} className="mb-4">Posts</PostTitle>
-        <CompressedItemsList path="posts" items={
-                  props.posts.filter(post => post.types.indexOf(PostType.POST) > -1)
-                      .slice(0, 4)
-                      .map(post => { return { title: post.title, subtitle: post.subtitle, url: `/posts/${post.slug}`, date: post.date } } )} />
-        <div className="border-t-2 border-stone-300 dark:border-stone-700 mt-2 pt-2 text-right text-sm">
-            <Link href="/posts">More posts</Link>
-        </div>
-    </Card>
-</div>
+                            <div>
+                                <PostTitle
+                                    size={PostTitleSize.Medium}
+                                    className="my-4 text-center"
+                                >
+                                    Recent Projects
+                                </PostTitle>
+
+                                <CardItemsList
+                                    path="projects"
+                                    items={props.posts
+                                        .filter(
+                                            (post) => post.types.indexOf(PostType.PROJECT) > -1
+                                        )
+                                        .slice(0, 4)}
+                                />
+
+                                <hr className="mt-4 w-1/2 mx-auto border-t-4 border-eoinblue-400 border-dotted" />
+
+                                <Link
+                                    href="/posts"
+                                    className="block p-4 font-bold text-center text-sm hover:bg-eoinblue-50 hover:text-eoinblue-700"
+                                >
+                                    More projects
+                                </Link>
+                            </div>
+                        </Card>
+                    )
+                }
+            />
+        ))}
+
+    <Link
+        href="archive"
+        className="text-center p-4 font-bold hover:bg-eoinblue-50 hover:text-eoinblue-700"
+    >
+        All posts
+    </Link>
+</main>

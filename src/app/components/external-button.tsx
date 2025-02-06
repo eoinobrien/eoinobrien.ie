@@ -7,11 +7,14 @@ type ExternalButtonProps = {
 
 export function ExternalButton({ linkText, url }: ExternalButtonProps) {
   return (
-    <a href={url} className="hover:text-stone-50 text-stone-800 no-underline">
-      <div className="px-2 py-1 rounded bg-stone-300 hover:bg-stone-500">
-        {linkText}
-        <ArrowTopRightOnSquareIcon className="ml-1 size-4 inline-block" />
-      </div>
+    <a
+      href={url}
+      className="no-underline px-2 py-0.5 text-sm rounded w-fit transition-all
+        text-eoinblue-700 hover:text-eoinblue-50 bg-eoinblue-100 hover:bg-eoinblue-600 
+        dark:text-eoinblue-200 dark:hover:text-eoinblue-900 dark:bg-eoinblue-800 dark:hover:bg-eoinblue-400"
+    >
+      {linkText}
+      <ArrowTopRightOnSquareIcon className="ml-1 size-4 inline-block align-text-bottom" />
     </a>
   );
 }

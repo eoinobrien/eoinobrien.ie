@@ -9,7 +9,7 @@ export type Post = {
   subtitle: string;
   date: string;
   image?: CoverImage;
-  authors: Author[];
+  authors?: Author[];
   content: string;
   simplifiedContent: string;
   preview?: boolean;
@@ -19,5 +19,6 @@ export type Post = {
 
 export enum PostType {
   POST,
-  PROJECT
+  PROJECT,
+  LINK,
 }

@@ -16,7 +16,11 @@ export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
-export async function getPostBySlugFromDisk(slug: string, processor: Processor<any, any, any, any, string>, simplifiedProcessor: Processor<any, any, any, any, string>): Promise<Post> {
+export async function getPostBySlugFromDisk(
+  slug: string,
+  processor: Processor<any, any, any, any, string>,
+  simplifiedProcessor: Processor<any, any, any, any, string>
+): Promise<Post> {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -33,7 +37,10 @@ export async function getPostBySlugFromDisk(slug: string, processor: Processor<a
   });
 
   const contentHtml = await markdownToHtml(processor, content || "");
-  const simplifiedContentHtml = await markdownToHtml(simplifiedProcessor, content || "");
+  const simplifiedContentHtml = await markdownToHtml(
+    simplifiedProcessor,
+    content || ""
+  );
 
   let result = {
     ...data,
@@ -74,7 +81,11 @@ async function getAllPostsFromDisk(): Promise<Post[]> {
   const simplifiedProcessor = await getMarkdownProcessor(true);
 
   const slugs = getPostSlugs();
-  const posts = await Promise.all(slugs.map((slug) => getPostBySlugFromDisk(slug, processor, simplifiedProcessor)))
+  const posts = await Promise.all(
+    slugs.map((slug) =>
+      getPostBySlugFromDisk(slug, processor, simplifiedProcessor)
+    )
+  )
     // In production, filter out posts whose publication date is after now
     // This only happens at build time, so future posts are not published automatically without a build
     .then((posts) =>
@@ -107,15 +118,19 @@ export async function getAllPosts(type?: PostType): Promise<Post[]> {
 export async function getAllPostCategories(): Promise<Category[]> {
   const posts = await getAllPosts();
 
-  var flattenedCategories = new Map();
+  const flattenedCategories = posts.reduce((acc, post) => {
+    post.categories &&
+      post.categories.forEach((category) => {
+        acc[category.slug] = {
+          title: category.title,
+          slug: category.slug,
+          count: (acc[category.slug]?.count || 0) + 1,
+        };
+      });
+    return acc;
+  }, {} as Record<string, Category>);
 
-  posts
-    .flatMap((post) => post.categories ?? [])
-    .forEach((category) => {
-      flattenedCategories.set(category.slug, category);
-    });
-
-  return Array.from(flattenedCategories.values());
+  return Object.entries(flattenedCategories).map(([_, category]) => category);
 }
 
 export async function getPostsByCategory(category: string): Promise<Post[]> {
