@@ -24,6 +24,7 @@ export default async function Page() {
     <main className="w-full flex flex-col divide-y-4 divide-eoinblue-400 divide-dotted">
       {posts.map((post, index) => (
         <SplitView
+          key={index}
           left={<FullPostCard {...post} linkSlug={post.slug} key={index} />}
           right={index === 0 &&
             <>
