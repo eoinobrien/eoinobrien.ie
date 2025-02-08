@@ -20,7 +20,17 @@ export async function CardItemsList({ items }: Props) {
               {item.title}
             </PostTitle>
             {item.subtitle && <span>{item.subtitle}</span>}
-            {" "} {item.slug && <Link href={`/posts/${item.slug}`} className="italic text-sm font-heading no-underline hover:underline">Read more</Link>}
+            {item.slug && item.content && (
+              <span>
+                {" "}
+                <Link
+                  href={`/posts/${item.slug}`}
+                  className="italic text-sm font-heading no-underline hover:underline"
+                >
+                  Read more
+                </Link>
+              </span>
+            )}
           </div>
         );
       })}
