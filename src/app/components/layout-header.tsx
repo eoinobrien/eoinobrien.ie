@@ -16,6 +16,9 @@ export function LayoutHeader() {
           <Link href="/posts" className="m-1">
             Posts
           </Link>
+          <Link href="/projects" className="m-1">
+            Projects
+          </Link>
         </div>
       </div>
     </div>
