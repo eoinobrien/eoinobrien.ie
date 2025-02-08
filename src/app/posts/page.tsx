@@ -1,24 +1,14 @@
 import { Metadata } from "next";
-import { getAllPosts } from "@/lib/post-api";
-import { FullPostCard } from "@/app/components/full-post-card";
 import Link from "next/link";
+import { FullPostCard } from "@/app/components/full-post-card";
+import { PostTitle, PostTitleSize } from "@/app/components/post-title";
+import { SplitView } from "@/app/components/split-view";
 import { PostType } from "@/interfaces/post";
-import { SplitView } from "../components/split-view";
-import { PostTitle, PostTitleSize } from "../components/post-title";
+import { getAllPostCategories, getAllPosts } from "@/lib/post-api";
 
-export default async function Page() {
-  const posts = (await getAllPosts(PostType.POST)).slice(0, 10);
-
-  const categoryCount = posts.reduce((acc, post) => {
-    post.categories &&
-      post.categories.forEach((category) => {
-        acc[category.slug] = {
-          title: category.title,
-          count: (acc[category.slug]?.count || 0) + 1,
-        };
-      });
-    return acc;
-  }, {} as Record<string, { title: string; count: number }>);
+export async function getPageByPostType(type?: PostType) {
+  const posts = (await getAllPosts(type)).slice(0, 10);
+  const categories = await getAllPostCategories();
 
   return (
     <main className="w-full flex flex-col divide-y-4 divide-eoinblue-400 divide-dotted">
@@ -26,30 +16,30 @@ export default async function Page() {
         <SplitView
           key={index}
           left={<FullPostCard {...post} linkSlug={post.slug} key={index} />}
-          right={index === 0 &&
-            <>
-              <PostTitle
-                size={PostTitleSize.Medium}
-                className="my-4 text-center"
-              >
-                All categories
-              </PostTitle>
+          right={
+            index === 0 && (
+              <>
+                <PostTitle
+                  size={PostTitleSize.Medium}
+                  className="my-4 text-center"
+                >
+                  All categories
+                </PostTitle>
 
-              <ul className="text-center">
-                {Object.entries(categoryCount).map(
-                  ([slug, { title, count }]) => (
-                    <li key={slug}>
+                <ul className="text-center">
+                  {categories.map((category) =>
+                    <li key={category.slug}>
                       <Link
-                        href={`/categories/${slug}`}
+                        href={`/categories/${category.slug}`}
                         className="no-underline hover:underline"
                       >
-                        {title} ({count})
+                        {category.title} ({category.count})
                       </Link>
                     </li>
-                  )
-                )}
-              </ul>
-            </>
+                  )}
+                </ul>
+              </>
+            )
           }
         />
       ))}
@@ -61,6 +51,10 @@ export default async function Page() {
       </Link>
     </main>
   );
+}
+
+export default async function Page() {
+  return await getPageByPostType();
 }
 
 export const metadata: Metadata = {

@@ -12,7 +12,7 @@ export default async function Page() {
       <SplitView
         left={
           <>
-            <PostTitle className="my-4">All posts</PostTitle>
+            <PostTitle className="m-4">All posts</PostTitle>
             <ItemsList path="posts" items={posts} />
           </>
         }

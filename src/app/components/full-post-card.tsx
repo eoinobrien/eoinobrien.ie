@@ -29,8 +29,12 @@ export async function FullPostCard({
   categories,
   linkSlug,
   links,
-  className
+  className,
 }: Props) {
+  const titleLink = content
+    ? linkSlug && `/posts/${linkSlug}`
+    : links?.projectUrl ?? links?.codeUrl;
+
   return (
     <Card className={className}>
       <main className="w-full max-w-3xl flex flex-col gap-y-4 my-4">
@@ -41,7 +45,7 @@ export async function FullPostCard({
           authors={authors}
           coverImage={image}
           categories={categories}
-          linkUrl={linkSlug && `/posts/${linkSlug}`}
+          linkUrl={titleLink}
           projectUrl={links?.projectUrl}
           codeUrl={links?.codeUrl}
         />
