@@ -10,7 +10,7 @@ import { SplitView } from "@/app/components/split-view";
 
 <main className="w-full flex flex-col divide-y-4 divide-eoinblue-400 divide-dotted">
     {props.posts
-        .filter((post) => post.types.indexOf(PostType.POST) > -1)
+        .filter((post) => post.types.indexOf(PostType.POST) > -1 || post.types.indexOf(PostType.LINK) > -1)
         .slice(0, 8)
         .map((post, index) => (
             <SplitView
