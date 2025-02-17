@@ -22,13 +22,12 @@ export function PostAuthors({ authors }: { authors?: Author[] }) {
 function PostAuthor({ author }: { author: Author }) {
   return (
     <address className="inline-block not-italic">
-      <a
+      <span
         rel="author"
-        href="/"
         className="text-black decoration-transparent hover:decoration-inherit focus:decoration-inherit"
       >
         {author?.name}
-      </a>
+      </span>
     </address>
   );
 }

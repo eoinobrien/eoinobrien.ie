@@ -24,3 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 }
+
+export const dynamic = "force-static";
+export const revalidate = 86400; // revalidate once a day (60 secs * 60 mins * 24 hrs)
