@@ -6,12 +6,13 @@ import { FullPostCard } from "@/app/components/full-post-card";
 import { SplitView } from "@/app/components/split-view";
 
 type Params = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export default async function Page({ params }: Params) {
+export default async function Page(props: Params) {
+  const params = await props.params;
   const post = await getPostBySlug(params.slug);
 
   if (!post) {
@@ -21,7 +22,8 @@ export default async function Page({ params }: Params) {
   return <SplitView left={<FullPostCard {...post} />} right={undefined} />;
 }
 
-export async function generateMetadata({ params }: Params): Promise<Metadata> {
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
   const post = await getPostBySlug(params.slug);
 
   if (!post) {

@@ -12,12 +12,13 @@ import Link from "next/link";
 import { SplitView } from "@/app/components/split-view";
 
 type Params = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export default async function Page({ params }: Params) {
+export default async function Page(props: Params) {
+  const params = await props.params;
   const categoryPosts = await getPostsByCategory(params.slug);
 
   const categories = await getAllPostCategories();
@@ -68,7 +69,8 @@ function getCategoryTitle(slug: string, posts: Post[]) {
   return slug;
 }
 
-export async function generateMetadata({ params }: Params): Promise<Metadata> {
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
   const posts = await getPostsByCategory(params.slug);
 
   var title = `${params.slug} posts by Eoin O'Brien`;
