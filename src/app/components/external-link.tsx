@@ -1,5 +1,7 @@
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 
+import type { JSX } from "react";
+
 type ExternalLinkProps = {
   linkText: string | JSX.Element;
   url: string;
