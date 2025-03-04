@@ -2,7 +2,7 @@
 types:
  - link
 title: "Quoting: Why Blog?"
-url: "https://andysblog.uk/why-blog-if-nobody-reads-it/"
+links.url: "https://andysblog.uk/why-blog-if-nobody-reads-it/"
 authors:
   - name: "Eoin O'Brien"
 categories:

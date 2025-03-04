@@ -5,6 +5,7 @@ import { PostHeader } from "./post-header";
 import { Card } from "./card";
 import { MarkdownContentDangerousHtml } from "./markdown-content";
 import { ProjectLinks } from "@/interfaces/project";
+import { LinkPostLinks } from "@/interfaces/link-post";
 
 type Props = {
   title: string;
@@ -15,7 +16,7 @@ type Props = {
   authors?: Author[];
   categories?: Category[];
   linkSlug?: string;
-  links?: ProjectLinks;
+  links?: ProjectLinks | LinkPostLinks;
   className?: string;
 };
 
@@ -31,9 +32,25 @@ export async function FullPostCard({
   links,
   className,
 }: Props) {
-  const titleLink = content
-    ? linkSlug && `/posts/${linkSlug}`
-    : links?.projectUrl ?? links?.codeUrl;
+  function isProjectLinks(links: ProjectLinks | LinkPostLinks): links is ProjectLinks {
+    return (links as ProjectLinks).projectUrl !== undefined || (links as ProjectLinks).codeUrl !== undefined;
+  }
+  
+  function isLinkPostLinks(links: ProjectLinks | LinkPostLinks): links is LinkPostLinks {
+    return (links as LinkPostLinks).url !== undefined;
+  }
+
+  let titleLink: string | undefined;
+  
+  if (content && linkSlug) {
+    titleLink = `/posts/${linkSlug}`;
+  } else if (links) {
+    if (isProjectLinks(links)) {
+      titleLink = links.projectUrl ?? links.codeUrl;
+    } else if (isLinkPostLinks(links)) {
+      titleLink = links.url;
+    }
+  }
 
   return (
     <Card className={className}>
@@ -46,8 +63,8 @@ export async function FullPostCard({
           coverImage={image}
           categories={categories}
           linkUrl={titleLink}
-          projectUrl={links?.projectUrl}
-          codeUrl={links?.codeUrl}
+          projectUrl={links && isProjectLinks(links) ? links.projectUrl : undefined}
+          codeUrl={links && isProjectLinks(links) ? links.codeUrl : undefined}
         />
         <MarkdownContentDangerousHtml content={content} />
       </main>
