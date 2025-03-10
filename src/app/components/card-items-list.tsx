@@ -1,9 +1,9 @@
-import { Project } from "@/interfaces/project";
+import { Post } from "@/interfaces/post";
 import { PostTitle, PostTitleSize } from "./post-title";
 import Link from "next/link";
 
 type Props = {
-  items: Project[];
+  items: Post[];
 };
 
 export async function CardItemsList({ items }: Props) {
@@ -14,7 +14,7 @@ export async function CardItemsList({ items }: Props) {
           <div key={index} className="">
             <PostTitle
               size={PostTitleSize.Small}
-              linkUrl={item.links?.projectUrl ?? item.links?.codeUrl}
+              linkUrl={item.slug && `/posts/${item.slug}`}
               className="font-normal underline hover:decoration-transparent focus:decoration-transparent transition-all duration-300"
             >
               {item.title}
