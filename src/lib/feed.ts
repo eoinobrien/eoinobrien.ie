@@ -46,7 +46,7 @@ export default async function generateFeeds(posts: Post[]) {
       id: new URL(`/posts/${post.slug}`, siteUrl).href,
       link: new URL(`/posts/${post.slug}`, siteUrl).href,
       description: post.subtitle,
-      content: post.simplifiedContent,
+      content: post.feedContent,
       author: author,
       date: parseISO(post.date),
       image:

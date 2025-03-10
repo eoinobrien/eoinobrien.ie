@@ -7,7 +7,9 @@ authors:
   - name: "Eoin O'Brien"
 date: "2021-05-01T20:00:00Z"
 links:
-  codeUrl: https://github.com/eoinobrien/SongkickToSpotify
-  projectUrl: https://upcomingcity.eoin.co/
+  - url: https://upcomingcity.eoin.co/
+    type: Project
+  - url: https://github.com/eoinobrien/SongkickToSpotify
+    type: Code
 status: offline
 ---

@@ -1,19 +1,32 @@
 import { Category } from "@/interfaces/category";
-import { Post, PostType } from "@/interfaces/post";
+import { Post, PostMatter, PostType } from "@/interfaces/post";
 import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
 import slugify from "slugify";
 import generateFeeds from "./feed";
-import { Project, ProjectStatus } from "@/interfaces/project";
 import { markdownToHtml, getMarkdownProcessor } from "./markdownToHtml";
 import { Processor } from "unified";
+import { PostLinkType, PostLink } from "@/interfaces/post-links";
+import { getLinkText } from "./link-api";
 
 const postsDirectory = join(process.cwd(), "_posts");
 let cachedPosts: Post[] | null = null;
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
+}
+
+function getLinksAsMarkdown(
+  links: PostLink[]
+): string {
+  if (!links) {
+    return "";
+  }
+
+  return links
+    .map((link) => `- [${getLinkText(link)}](${link.url})`)
+    .join("\n");
 }
 
 export async function getPostBySlugFromDisk(
@@ -36,29 +49,31 @@ export async function getPostBySlugFromDisk(
     return PostType[(type as string).toUpperCase() as keyof typeof PostType];
   });
 
-  const contentHtml = await markdownToHtml(processor, content || "");
-  const simplifiedContentHtml = await markdownToHtml(
-    simplifiedProcessor,
-    content || ""
-  );
+  const typedLinks =
+    data.links &&
+    data.links?.map((link: { type: string; }) => ({ ...link, type: PostLinkType[link.type?.toUpperCase() as keyof typeof PostLinkType] } as PostLink));
 
-  let result = {
-    ...data,
+  let result: Post = {
+    ...data as PostMatter,
     types,
     categories,
     slug: realSlug,
-    content: contentHtml,
-    simplifiedContent: simplifiedContentHtml,
+    links: typedLinks,
+    content: "",
+    feedContent: "",
   };
 
-  if (types.indexOf(PostType.PROJECT) > -1) {
-    const status =
-      data.status &&
-      ProjectStatus[data.status.toUpperCase() as keyof typeof ProjectStatus];
-    return { ...result, status } as Project;
-  }
+  const contentHtml = await markdownToHtml(processor, content || "");
+  const feedContentHtml = await markdownToHtml(
+    simplifiedProcessor,
+    content + "\n" + getLinksAsMarkdown(typedLinks) || ""
+  );
 
-  return result as Post;
+  return {
+    ...result,
+    content: contentHtml,
+    feedContent: feedContentHtml,
+  } as Post;
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | undefined> {

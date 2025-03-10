@@ -1,8 +1,9 @@
 import { type Author } from "./author";
 import { Category } from "./category";
 import { CoverImage } from "./cover-image";
+import { PostLink } from "./post-links";
 
-export type Post = {
+export type PostMatter = {
   types: PostType[];
   slug: string;
   title: string;
@@ -10,11 +11,13 @@ export type Post = {
   date: string;
   image?: CoverImage;
   authors?: Author[];
-  content: string;
-  simplifiedContent: string;
-  preview?: boolean;
   categories?: Category[];
-  tags?: string[];
+  links?: PostLink[];
+}
+
+export interface Post extends PostMatter {
+  content: string;
+  feedContent: string;
 };
 
 export enum PostType {

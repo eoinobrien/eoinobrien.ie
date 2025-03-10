@@ -4,7 +4,7 @@ export function PostAuthors({ authors }: { authors?: Author[] }) {
   return (
     <>
       {authors && (authors[0].name != "Eoin O'Brien" || authors.length > 1) && (
-        <span>
+        <span className="text-sm text-stone-600 dark:text-stone-400">
           By{" "}
           {authors.map((author, index) => (
             <span key={index}>
@@ -24,7 +24,7 @@ function PostAuthor({ author }: { author: Author }) {
     <address className="inline-block not-italic">
       <span
         rel="author"
-        className="text-black decoration-transparent hover:decoration-inherit focus:decoration-inherit"
+        className="decoration-transparent hover:decoration-inherit focus:decoration-inherit"
       >
         {author?.name}
       </span>

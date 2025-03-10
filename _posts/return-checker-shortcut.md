@@ -7,7 +7,8 @@ authors:
   - name: "Eoin O'Brien"
 date: "2024-03-08T13:05:00Z"
 links:
-  projectUrl: https://www.icloud.com/shortcuts/0c144618c4fd437ab5b7a1c0fb172618
+  - url: https://www.icloud.com/shortcuts/0c144618c4fd437ab5b7a1c0fb172618
+    type: Project
 categories:
   - Software
 tags:

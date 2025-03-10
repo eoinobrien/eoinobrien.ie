@@ -8,8 +8,10 @@ authors:
   - name: "Eoin O'Brien"
 date: "2024-10-07T22:34:00Z"
 links:
-  codeUrl: https://github.com/eoinobrien/culture-night
-  projectUrl: http://culturenight.eoin.co/
+  - url: http://culturenight.eoin.co/
+    type: Project
+  - url: https://github.com/eoinobrien/culture-night
+    type: Code
 categories:
   - Software
 tags:

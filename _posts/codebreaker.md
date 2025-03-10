@@ -7,7 +7,9 @@ authors:
   - name: "Eoin O'Brien"
 date: "2022-02-24T20:00:00Z"
 links:
-  projectUrl: https://codebreaker.eoin.co/
-  codeUrl: https://github.com/eoinobrien/codebreaker
+  - url: https://codebreaker.eoin.co/
+    type: Project
+  - url: https://github.com/eoinobrien/codebreaker
+    type: Code
 status: offline
 ---
