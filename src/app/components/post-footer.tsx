@@ -17,8 +17,8 @@ export function PostFooter({
   links
 }: Props) {
   return (
-    <>
-      {links && links.length > 0 && <div className="flex flex-row gap-2">
+    <footer className="flex flex-col gap-y-4">
+      {links && links.length > 0 && <div className="flex flex-row flex-wrap gap-2">
         {links.map((link, index) => (
           <ExternalButton key={index} url={link.url} linkText={getLinkText(link)} />
         ))}
@@ -35,6 +35,6 @@ export function PostFooter({
           </>
         )}
       </div>
-    </>
+    </footer>
   );
 }

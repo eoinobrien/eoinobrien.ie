@@ -20,7 +20,7 @@ export function PostHeader({
   titleLinkUrl,
 }: Props) {
   return (
-    <>
+    <header>
       <PostTitle linkUrl={titleLinkUrl}>{title}</PostTitle>
 
       {subtitle && (
@@ -35,6 +35,6 @@ export function PostHeader({
       <PostAuthors authors={authors} />
 
       {coverImage?.path && <PostCoverImage {...coverImage} />}
-    </>
+    </header>
   );
 }

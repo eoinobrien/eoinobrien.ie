@@ -11,7 +11,7 @@ export async function CardItemsList({ items }: Props) {
     <div className="flex flex-col gap-y-4">
       {await items.map(async (item, index) => {
         return (
-          <div key={index} className="">
+          <article key={index}>
             <PostTitle
               size={PostTitleSize.Small}
               linkUrl={item.slug && `/posts/${item.slug}`}
@@ -31,7 +31,7 @@ export async function CardItemsList({ items }: Props) {
                 </Link>
               </span>
             )}
-          </div>
+          </article>
         );
       })}
     </div>

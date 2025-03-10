@@ -34,7 +34,7 @@ export async function FullPostCard({
 }: Props) {
   return (
     <Card className={className}>
-      <main className="w-full max-w-3xl flex flex-col gap-y-4 my-4">
+      <article className="w-full max-w-3xl flex flex-col gap-y-4 my-4">
         <PostHeader
           title={title}
           subtitle={subtitle}
@@ -46,7 +46,7 @@ export async function FullPostCard({
         <PostFooter publishedDate={date}
           categories={categories}
           links={links} />
-      </main>
+      </article>
     </Card>
   );
 }
