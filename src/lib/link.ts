@@ -11,19 +11,14 @@ export function getLinkText(link: PostLink): string {
   }
 
   let domain = getLinkDomain(link.url);
-  var title: string | undefined = undefined;
-  
+
   switch (link.type) {
     case PostLinkType.PROJECT:
-      title = "Project website";
-      break;
+      return `Project website (${domain})`;
     case PostLinkType.CODE:
-      title = "Source code";
-      break;
-  }
-
-  if (title) {
-    return title + " (" + domain + ")";
+      return `Source code (${domain})`;
+    case PostLinkType.EXTERNAL:
+      return `Via ${domain}`;
   }
 
   return domain;

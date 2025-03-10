@@ -8,7 +8,7 @@ import generateFeeds from "./feed";
 import { markdownToHtml, getMarkdownProcessor } from "./markdownToHtml";
 import { Processor } from "unified";
 import { PostLinkType, PostLink } from "@/interfaces/post-links";
-import { getLinkText } from "./link-api";
+import { getLinkText } from "./link";
 
 const postsDirectory = join(process.cwd(), "_posts");
 let cachedPosts: Post[] | null = null;

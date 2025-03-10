@@ -3,7 +3,7 @@ import { Category } from "@/interfaces/category";
 import { PostCategories } from "./post-category";
 import { ExternalButton } from "./external-button";
 import { PostLink } from "@/interfaces/post-links";
-import { getLinkText } from "@/lib/link-api";
+import { getLinkText } from "@/lib/link";
 
 type Props = {
   publishedDate: string;
