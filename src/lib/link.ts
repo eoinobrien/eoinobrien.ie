@@ -17,8 +17,8 @@ export function getLinkText(link: PostLink): string {
       return `Project website (${domain})`;
     case PostLinkType.CODE:
       return `Source code (${domain})`;
-    case PostLinkType.EXTERNAL:
-      return `Via ${domain}`;
+      case PostLinkType.VIA:
+        return `Via ${domain}`;
   }
 
   return domain;

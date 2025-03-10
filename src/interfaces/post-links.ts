@@ -7,5 +7,6 @@ export type PostLink = {
 export enum PostLinkType {
   PROJECT,
   CODE,
-  EXTERNAL
+  EXTERNAL,
+  VIA
 }
